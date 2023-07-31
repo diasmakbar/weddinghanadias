@@ -342,7 +342,7 @@
 					<div class="col-md-12 animate-box">
 						<div class="wrap-testimony">
 							<div class="owl-carousel-fullwidth">
-								<div class="item">
+								<!-- <div class="item">
 									<div class="testimony-slide active text-center">
 										<figure>
 											<img src="images/couple-1.jpg" alt="user">
@@ -374,7 +374,7 @@
 											<p>"Far far away, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
 										</blockquote>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -474,7 +474,81 @@
     function hideAttendanceNumber() {
         document.getElementById("attendanceNumber").style.display = "none";
     }
+
+	let messagesRef = firebase.database().ref('messages');
+document.getElementById('attendance-form').addEventListener('submit', submitForm);
+
+function submitForm(e){
+  e.preventDefault();
+
+  let name = getInputVal('name');
+  let attending = document.querySelector('input[name="attending"]:checked').value;
+  let numberOfPeople = document.querySelector('input[name="numberOfPeople"]:checked').value;
+  let wishes = getInputVal('wishes');
+
+  saveMessage(name, attending, numberOfPeople, wishes);
+}
+
+function getInputVal(id){
+  return document.getElementById(id).value;
+}
+
+function saveMessage(name, attending, numberOfPeople, wishes){
+  let newMessageRef = messagesRef.push();
+  newMessageRef.set({
+    name: name,
+    attending: attending,
+    numberOfPeople: numberOfPeople,
+    wishes: wishes
+  });
+}
+
+firebase.database().ref('messages').on('value', function(snapshot) {
+  let testimonialsContainer = document.getElementById('testimonial-area');
+  testimonialsContainer.innerHTML = ''; // Clear out the existing testimonials
+
+  snapshot.forEach(function(childSnapshot) {
+    let childData = childSnapshot.val();
+    let testimonial = document.createElement('div');
+    testimonial.innerHTML = `
+      <div class="testimony-slide active text-center">
+        <span>${childData.name}, via <a href="#" class="twitter">Twitter</a></span>
+        <blockquote>
+          <p>"${childData.wishes}"</p>
+        </blockquote>
+      </div>
+    `;
+    testimonialsContainer.appendChild(testimonial);
+  });
+});
+
+
 </script>
+
+<script type="module">
+	// Import the functions you need from the SDKs you need
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+	import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+  
+	// Your web app's Firebase configuration
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+	  apiKey: "AIzaSyACnf6G8px_ldBGoq4RitkA0CVxsZh8OrQ",
+	  authDomain: "wedding-diashana.firebaseapp.com",
+	  databaseURL: "https://wedding-diashana-default-rtdb.asia-southeast1.firebasedatabase.app",
+	  projectId: "wedding-diashana",
+	  storageBucket: "wedding-diashana.appspot.com",
+	  messagingSenderId: "1094412476684",
+	  appId: "1:1094412476684:web:c8a1b8b6d31558cc50a929",
+	  measurementId: "G-TXH7CHQ6WE"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+	const analytics = getAnalytics(app);
+  </script>
 
 	</body>
 </html>
