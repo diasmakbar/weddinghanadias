@@ -393,7 +393,16 @@
 					<p>Please fill out the form to confirm your attendance</p>
 				</div>
 			</div>
-			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/viewform?embedded=true" width="640" height="660" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+
+			<!-- window.location: Which page should user go to when this form sends data and succeeds -->
+			<!-- <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="if(typeof sent_redirect!='undefined'){window.location='https://www.google.com/';}"></iframe> -->
+
+			<!-- action="google form action ag value" -->
+			<!-- <form onsubmit="sent_redirect=true" target="iframe_redirect" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse" method="post"> -->
+
+			<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/viewform?embedded=true" width="640" height="660" frameborder="0" marginheight="0" marginwidth="0"></iframe> -->
+			<!-- https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse -->
+			
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
 					<!-- <form class="form-inline" name="attendance-form" method="POST" netlify> -->
@@ -478,54 +487,97 @@
     }
 
 	let messagesRef = firebase.database().ref('messages');
-document.getElementById('attendance-form').addEventListener('submit', submitForm);
+	document.getElementById('attendance-form').addEventListener('submit', submitForm);
 
-function submitForm(e){
-  e.preventDefault();
+	function submitForm(e){
+	e.preventDefault();
 
-  let name = getInputVal('name');
-  let attending = document.querySelector('input[name="attending"]:checked').value;
-  let numberOfPeople = document.querySelector('input[name="numberOfPeople"]:checked').value;
-  let wishes = getInputVal('wishes');
+	let name = getInputVal('name');
+	let attending = document.querySelector('input[name="attending"]:checked').value;
+	let numberOfPeople = document.querySelector('input[name="numberOfPeople"]:checked').value;
+	let wishes = getInputVal('wishes');
 
-  saveMessage(name, attending, numberOfPeople, wishes);
-}
+	saveMessage(name, attending, numberOfPeople, wishes);
+	}
 
-function getInputVal(id){
-  return document.getElementById(id).value;
-}
+	function getInputVal(id){
+	return document.getElementById(id).value;
+	}
 
-function saveMessage(name, attending, numberOfPeople, wishes){
-  let newMessageRef = messagesRef.push();
-  newMessageRef.set({
-    name: name,
-    attending: attending,
-    numberOfPeople: numberOfPeople,
-    wishes: wishes
-  });
-}
+	function saveMessage(name, attending, numberOfPeople, wishes){
+	let newMessageRef = messagesRef.push();
+	newMessageRef.set({
+		name: name,
+		attending: attending,
+		numberOfPeople: numberOfPeople,
+		wishes: wishes
+	});
+	}
 
-firebase.database().ref('messages').on('value', function(snapshot) {
-  let testimonialsContainer = document.getElementById('testimonial-area');
-  testimonialsContainer.innerHTML = ''; // Clear out the existing testimonials
+	firebase.database().ref('messages').on('value', function(snapshot) {
+	let testimonialsContainer = document.getElementById('testimonial-area');
+	testimonialsContainer.innerHTML = ''; // Clear out the existing testimonials
 
-  snapshot.forEach(function(childSnapshot) {
-    let childData = childSnapshot.val();
-    let testimonial = document.createElement('div');
-    testimonial.innerHTML = `
-      <div class="testimony-slide active text-center">
-        <span>${childData.name}, via <a href="#" class="twitter">Twitter</a></span>
-        <blockquote>
-          <p>"${childData.wishes}"</p>
-        </blockquote>
-      </div>
-    `;
-    testimonialsContainer.appendChild(testimonial);
-  });
-});
+	snapshot.forEach(function(childSnapshot) {
+		let childData = childSnapshot.val();
+		let testimonial = document.createElement('div');
+		testimonial.innerHTML = `
+		<div class="testimony-slide active text-center">
+			<span>${childData.name}, via <a href="#" class="twitter">Twitter</a></span>
+			<blockquote>
+			<p>"${childData.wishes}"</p>
+			</blockquote>
+		</div>
+		`;
+		testimonialsContainer.appendChild(testimonial);
+	});
+	});
+
+	$(function() {
+	$('#submit').on('click', function() {
+	// name
+	var name = $('#name').val() || 'no set';
+	// attending
+	var attending = function() {
+	var v;
+	$('[name="attending"]').each(function() {
+	if($(this).prop('checked') === true) v = $(this).val();
+	});
+	return v;
+	};
+	// number
+	var numberOfPeople = function() {
+	var v;
+	$('[name="numberOfPeople"]').each(function() {
+	if($(this).prop('checked') === true) v = $(this).val();
+	});
+	return v;
+	};
+	// wishes
+	var wishes = $('#wishes').val() || 'no set';
+
+	// post
+	var data = {
+	'entry.1717783849': name,
+	'entry.164254037': attending(),
+	'entry.678699127': numberOfPeople(),
+	'entry.539757192': wishes
+	};
+	$.ajax({
+	type: 'POST',
+	url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
+	data: data,
+	contentType: 'application/json',
+	dataType: 'jsonp',
+	complete: function() {
+	alert('send success');
+	}
+	});
+	});
+	});
 
 
-</script>
+	</script>
 
 <script type="module">
 	// Import the functions you need from the SDKs you need
