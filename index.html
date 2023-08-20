@@ -486,52 +486,52 @@
         document.getElementById("attendanceNumber").style.display = "none";
     }
 
-	let messagesRef = firebase.database().ref('messages');
-	document.getElementById('attendance-form').addEventListener('submit', submitForm);
+	// let messagesRef = firebase.database().ref('messages');
+	// document.getElementById('attendance-form').addEventListener('submit', submitForm);
 
-	function submitForm(e){
-	e.preventDefault();
+	// function submitForm(e){
+	// e.preventDefault();
 
-	let name = getInputVal('name');
-	let attending = document.querySelector('input[name="attending"]:checked').value;
-	let numberOfPeople = document.querySelector('input[name="numberOfPeople"]:checked').value;
-	let wishes = getInputVal('wishes');
+	// let name = getInputVal('name');
+	// let attending = document.querySelector('input[name="attending"]:checked').value;
+	// let numberOfPeople = document.querySelector('input[name="numberOfPeople"]:checked').value;
+	// let wishes = getInputVal('wishes');
 
-	saveMessage(name, attending, numberOfPeople, wishes);
-	}
+	// saveMessage(name, attending, numberOfPeople, wishes);
+	// }
 
-	function getInputVal(id){
-	return document.getElementById(id).value;
-	}
+	// function getInputVal(id){
+	// return document.getElementById(id).value;
+	// }
 
-	function saveMessage(name, attending, numberOfPeople, wishes){
-	let newMessageRef = messagesRef.push();
-	newMessageRef.set({
-		name: name,
-		attending: attending,
-		numberOfPeople: numberOfPeople,
-		wishes: wishes
-	});
-	}
+	// function saveMessage(name, attending, numberOfPeople, wishes){
+	// let newMessageRef = messagesRef.push();
+	// newMessageRef.set({
+	// 	name: name,
+	// 	attending: attending,
+	// 	numberOfPeople: numberOfPeople,
+	// 	wishes: wishes
+	// });
+	// }
 
-	firebase.database().ref('messages').on('value', function(snapshot) {
-	let testimonialsContainer = document.getElementById('testimonial-area');
-	testimonialsContainer.innerHTML = ''; // Clear out the existing testimonials
+	// firebase.database().ref('messages').on('value', function(snapshot) {
+	// let testimonialsContainer = document.getElementById('testimonial-area');
+	// testimonialsContainer.innerHTML = ''; // Clear out the existing testimonials
 
-	snapshot.forEach(function(childSnapshot) {
-		let childData = childSnapshot.val();
-		let testimonial = document.createElement('div');
-		testimonial.innerHTML = `
-		<div class="testimony-slide active text-center">
-			<span>${childData.name}, via <a href="#" class="twitter">Twitter</a></span>
-			<blockquote>
-			<p>"${childData.wishes}"</p>
-			</blockquote>
-		</div>
-		`;
-		testimonialsContainer.appendChild(testimonial);
-	});
-	});
+	// snapshot.forEach(function(childSnapshot) {
+	// 	let childData = childSnapshot.val();
+	// 	let testimonial = document.createElement('div');
+	// 	testimonial.innerHTML = `
+	// 	<div class="testimony-slide active text-center">
+	// 		<span>${childData.name}, via <a href="#" class="twitter">Twitter</a></span>
+	// 		<blockquote>
+	// 		<p>"${childData.wishes}"</p>
+	// 		</blockquote>
+	// 	</div>
+	// 	`;
+	// 	testimonialsContainer.appendChild(testimonial);
+	// });
+	// });
 
 	$(function() {
 	$('#submit').on('click', function() {
