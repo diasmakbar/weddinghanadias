@@ -406,18 +406,18 @@
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
 					<!-- <form class="form-inline" name="attendance-form" method="POST" netlify> -->
-					<form class="form-inline" name="attendance-form" method="POST">
+					<form class="form-inline" name="attendance-form" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse" method="POST">
 						<div class="form-group">
 							<label for="name" class="sr-only">Name</label>
-							<input type="name" class="form-control" id="name" placeholder="Name" name="name">
+							<input type="name" class="form-control" id="name" placeholder="Name" name="entry.1717783849">
 						</div>
 	
 						<div class="form-group">
 							<label>Will you be attending the event?</label>
 							<div>
-								<input type="radio" id="attendingYes" name="attending" value="Yes, I will be there!" onclick="showAttendanceNumber()">
+								<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
 								<label for="attendingYes">Yes, I will be there!</label>
-								<input type="radio" id="attendingNo" name="attending" value="No, but I'm sending my best wishes for your wedding!" onclick="hideAttendanceNumber()">
+								<input type="radio" id="attendingNo" name="entry.164254037" value="No, but I'm sending my best wishes for your wedding!" onclick="hideAttendanceNumber()">
 								<label for="attendingNo">No, but I'm sending my best wishes for your wedding!</label>
 							</div>
 						</div>
@@ -425,16 +425,16 @@
 						<div class="form-group" id="attendanceNumber" style="display: none;">
 							<label>If attending, how many individuals will be joining?</label>
 							<div>
-								<input type="radio" id="onePerson" name="numberOfPeople" value="It will be just me!">
+								<input type="radio" id="onePerson" name="entry.678699127" value="It will be just me!">
 								<label for="onePerson">It will be just me!</label>
-								<input type="radio" id="twoPeople" name="numberOfPeople" value="Two of us will be attending!">
+								<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
 								<label for="twoPeople">Two of us will be attending!</label>
 							</div>
 						</div>
 	
 						<div class="form-group">
 							<label for="wishes">Please share your wishes for the couple:</label>
-							<textarea class="form-control" id="wishes" rows="3" name="wishes"></textarea>
+							<textarea class="form-control" id="wishes" rows="3" name="entry.539757192"></textarea>
 						</div>
 	
 						<button type="submit" class="btn btn-default btn-block">Submit</button>
@@ -533,49 +533,48 @@
 	// });
 	// });
 
-	$(function() {
-	$('#submit').on('click', function() {
-	// name
-	var name = $('#name').val() || 'no set';
-	// attending
-	var attending = function() {
-	var v;
-	$('[name="attending"]').each(function() {
-	if($(this).prop('checked') === true) v = $(this).val();
-	});
-	return v;
-	};
-	// number
-	var numberOfPeople = function() {
-	var v;
-	$('[name="numberOfPeople"]').each(function() {
-	if($(this).prop('checked') === true) v = $(this).val();
-	});
-	return v;
-	};
-	// wishes
-	var wishes = $('#wishes').val() || 'no set';
+	// $(function() {
+	// $('#submit').on('click', function() {
+	// // name
+	// var name = $('#name').val() || 'no set';
+	// // attending
+	// var attending = function() {
+	// var v;
+	// $('[name="attending"]').each(function() {
+	// if($(this).prop('checked') === true) v = $(this).val();
+	// });
+	// return v;
+	// };
+	// // number
+	// var numberOfPeople = function() {
+	// var v;
+	// $('[name="numberOfPeople"]').each(function() {
+	// if($(this).prop('checked') === true) v = $(this).val();
+	// });
+	// return v;
+	// };
+	// // wishes
+	// var wishes = $('#wishes').val() || 'no set';
 
-	// post
-	var data = {
-	'entry.1717783849': name,
-	'entry.164254037': attending(),
-	'entry.678699127': numberOfPeople(),
-	'entry.539757192': wishes
-	};
-	$.ajax({
-	type: 'POST',
-	url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
-	data: data,
-	contentType: 'application/json',
-	dataType: 'jsonp',
-	complete: function() {
-	alert('send success');
-	}
-	});
-	});
-	});
-
+	// // post
+	// var data = {
+	// 'entry.1717783849': name,
+	// 'entry.164254037': attending(),
+	// 'entry.678699127': numberOfPeople(),
+	// 'entry.539757192': wishes
+	// };
+	// $.ajax({
+	// type: 'POST',
+	// url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
+	// data: data,
+	// contentType: 'application/json',
+	// dataType: 'jsonp',
+	// complete: function() {
+	// alert('send success');
+	// }
+	// });
+	// });
+	// });
 
 	</script>
 
