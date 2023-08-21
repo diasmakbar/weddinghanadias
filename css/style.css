@@ -617,6 +617,12 @@ h1, h2, h3, h4, h5, h6, figure {
 .form-title {
   font-family: "Work Sans", Arial, sans-serif;
   color: #442100;
+  font-size: 20px;
+}
+
+.form-text {
+  font-family: "Work Sans", Arial, sans-serif;
+  color: #ffa34d;
   font-size: 16px;
 }
 
