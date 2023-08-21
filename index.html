@@ -247,7 +247,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<div class="simply-countdown simply-countdown-one"></div>
 					<h2>Will You Be Attending The Event?</h2>
-					<p>Please fill out the form to confirm your attendance</p>
+					<!-- <p>Please fill out the form to confirm your attendance</p> -->
 				</div>
 			</div>
 			
@@ -263,29 +263,29 @@
 	
 						<!-- Attending -->
 						<div class="form-group">
-							<label>Will you be attending the event?</label>
+							<label class="sr-only">Will you be attending the event?</label>
 							<div>
 								<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
-								<label for="attendingYes">Yes, I will be there!</label>
+								<label for="attendingYes" class="sr-only">Yes, I will be there!</label>
 								<input type="radio" id="attendingNo" name="entry.164254037" value="No, but I'm sending my best wishes for your wedding!" onclick="hideAttendanceNumber()">
-								<label for="attendingNo">No, but I'm sending my best wishes for your wedding!</label>
+								<label for="attendingNo" class="sr-only">No, but I'm sending my best wishes for your wedding!</label>
 							</div>
 						</div>
 	
 						<!-- People -->
 						<div class="form-group" id="attendanceNumber" style="display: none;">
-							<label>If attending, how many individuals will be joining?</label>
+							<label class="sr-only">If attending, how many individuals will be joining?</label>
 							<div>
 								<input type="radio" id="onePerson" name="entry.678699127" value="It will be just me!">
-								<label for="onePerson">It will be just me!</label>
+								<label for="onePerson" class="sr-only">It will be just me!</label>
 								<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
-								<label for="twoPeople">Two of us will be attending!</label>
+								<label for="twoPeople" class="sr-only">Two of us will be attending!</label>
 							</div>
 						</div>
 	
 						<!-- wishes -->
 						<div class="form-group">
-							<label for="wishes">Please share your wishes for the couple:</label>
+							<label for="wishes" class="sr-only">Please share your wishes for the couple:</label>
 							<textarea class="form-control" id="wishes" rows="3"></textarea>
 						</div>
 	
@@ -454,6 +454,8 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 	
+	<embed src="/media/muara.mp3" loop="true" autostart="true" width="2" height="0">
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.easing.1.3.js"></script>
 	<script src="js/bootstrap.min.js"></script>
