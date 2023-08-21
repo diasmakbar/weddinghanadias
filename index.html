@@ -290,6 +290,73 @@
 		</div>
 	</div>
 
+	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.JPG);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<div class="simply-countdown simply-countdown-one"></div>
+					<h2>Will You Be Attending The Event?</h2>
+					<p>Please fill out the form to confirm your attendance</p>
+				</div>
+			</div>
+
+			<!-- window.location: Which page should user go to when this form sends data and succeeds -->
+			<!-- <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="if(typeof sent_redirect!='undefined'){window.location='https://www.google.com/';}"></iframe> -->
+
+			<!-- action="google form action ag value" -->
+			<!-- <form onsubmit="sent_redirect=true" target="iframe_redirect" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse" method="post"> -->
+
+			<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/viewform?embedded=true" width="640" height="660" frameborder="0" marginheight="0" marginwidth="0"></iframe> -->
+			<!-- https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse -->
+			
+			<div class="row animate-box">
+				<div class="col-md-10 col-md-offset-1">
+					<!-- <form class="form-inline" name="attendance-form" method="POST" netlify> -->
+					<form class="form-inline" name="attendance-form" method="POST">
+
+						<!-- Name -->
+						<div class="form-group">
+							<label for="name" class="sr-only">Name</label>
+							<input type="text" class="form-control" id="name" placeholder="Please enter your name">
+						</div>
+	
+						<!-- Attending -->
+						<div class="form-group">
+							<label>Will you be attending the event?</label>
+							<div>
+								<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
+								<label for="attendingYes">Yes, I will be there!</label>
+								<input type="radio" id="attendingNo" name="entry.164254037" value="No, but I'm sending my best wishes for your wedding!" onclick="hideAttendanceNumber()">
+								<label for="attendingNo">No, but I'm sending my best wishes for your wedding!</label>
+							</div>
+						</div>
+	
+						<!-- People -->
+						<div class="form-group" id="attendanceNumber" style="display: none;">
+							<label>If attending, how many individuals will be joining?</label>
+							<div>
+								<input type="radio" id="onePerson" name="entry.678699127" value="It will be just me!">
+								<label for="onePerson">It will be just me!</label>
+								<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
+								<label for="twoPeople">Two of us will be attending!</label>
+							</div>
+						</div>
+	
+						<!-- wishes -->
+						<div class="form-group">
+							<label for="wishes">Please share your wishes for the couple:</label>
+							<textarea class="form-control" id="wishes" rows="3"></textarea>
+						</div>
+	
+						<!-- <button type="submit" class="btn btn-default btn-block">Submit</button> -->
+						<button type="button" id="submit" class="btn btn-default btn-block">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div id="fh5co-gallery" class="fh5co-section-gray">
 		<div class="container">
 			<div class="row">
@@ -381,74 +448,6 @@
 							</a>
 						</li>
 					</ul>		
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.JPG);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<div class="simply-countdown simply-countdown-one"></div>
-					<h2>Will You Be Attending The Event?</h2>
-					<p>Please fill out the form to confirm your attendance</p>
-				</div>
-			</div>
-
-			<!-- window.location: Which page should user go to when this form sends data and succeeds -->
-			<!-- <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="if(typeof sent_redirect!='undefined'){window.location='https://www.google.com/';}"></iframe> -->
-
-			<!-- action="google form action ag value" -->
-			<!-- <form onsubmit="sent_redirect=true" target="iframe_redirect" action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse" method="post"> -->
-
-			<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/viewform?embedded=true" width="640" height="660" frameborder="0" marginheight="0" marginwidth="0"></iframe> -->
-			<!-- https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse -->
-			
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1">
-					<!-- <form class="form-inline" name="attendance-form" method="POST" netlify> -->
-					<form class="form-inline" name="attendance-form" method="POST">
-
-						<!-- Name -->
-						<div class="form-group">
-							<label for="name" class="sr-only">Name</label>
-							<input type="text" class="form-control" id="name" placeholder="Please enter your name">
-						</div>
-	
-						<!-- Attending -->
-						<div class="form-group">
-							<label>Will you be attending the event?</label>
-							<div>
-								<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
-								<label for="attendingYes">Yes, I will be there!</label>
-								<input type="radio" id="attendingNo" name="entry.164254037" value="No, but I'm sending my best wishes for your wedding!" onclick="hideAttendanceNumber()">
-								<label for="attendingNo">No, but I'm sending my best wishes for your wedding!</label>
-							</div>
-						</div>
-	
-						<!-- People -->
-						<div class="form-group" id="attendanceNumber" style="display: none;">
-							<label>If attending, how many individuals will be joining?</label>
-							<div>
-								<input type="radio" id="onePerson" name="entry.678699127" value="It will be just me!">
-								<label for="onePerson">It will be just me!</label>
-								<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
-								<label for="twoPeople">Two of us will be attending!</label>
-							</div>
-						</div>
-	
-						<!-- wishes -->
-						<div class="form-group">
-							<label for="wishes">Please share your wishes for the couple:</label>
-							<textarea class="form-control" id="wishes" rows="3"></textarea>
-						</div>
-	
-						<!-- <button type="submit" class="btn btn-default btn-block">Submit</button> -->
-						<button type="button" id="submit" class="btn btn-default btn-block">Submit</button>
-					</form>
 				</div>
 			</div>
 		</div>
