@@ -542,7 +542,7 @@
 	$(function() {
 	$('#submit').on('click', function() {
 	// name
-	var name = $('#entry.1717783849').val() || 'no set';
+	var name = $('#name').val() || 'no set';
 	// attending
 	var attending = function() {
 	var v;
@@ -560,7 +560,7 @@
 	return v;
 	};
 	// wishes
-	var wishes = $('#entry.539757192').val() || 'no set';
+	var wishes = $('#wishes').val() || 'no set';
 
 	// post
 	var data = {
@@ -576,7 +576,7 @@
 	contentType: 'application/json',
 	dataType: 'jsonp',
 	complete: function() {
-	alert('send success');
+	alert('Waiting for you!');
 	}
 	});
 	});
