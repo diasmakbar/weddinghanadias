@@ -615,9 +615,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .form-title {
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Work Sans", Arial, sans-serif;
   color: #442100;
-  font-size: 10px;
+  font-size: 30px;
 }
 
 .date {
