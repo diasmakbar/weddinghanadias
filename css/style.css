@@ -616,13 +616,15 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .form-title {
   font-family: "Work Sans", Arial, sans-serif;
-  color: #442100;
+  /* color: #442100; */
+  color: #fff;
   font-size: 20px;
 }
 
 .form-text {
   font-family: "Work Sans", Arial, sans-serif;
-  color: #ffa34d;
+  /* color: #ffa34d; */
+  color: #fff;
   font-size: 16px;
 }
 
@@ -1007,7 +1009,8 @@ form label {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background: rgba(241, 78, 149, 0.8);
+  /* background: rgba(241, 78, 149, 0.8); */
+  background: #442100;
   margin: 0 4px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
