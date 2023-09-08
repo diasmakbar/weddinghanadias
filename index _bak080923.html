@@ -1,58 +1,50 @@
 <!DOCTYPE html>
 	<html class="no-js">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Wedding Hana & Dias</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Wedding Hana & Dias</title>
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta property="og:title" content=""/>
-		<meta property="og:image" content=""/>
-		<meta property="og:url" content=""/>
-		<meta property="og:site_name" content=""/>
-		<meta property="og:description" content=""/>
-		<meta name="twitter:title" content="" />
-		<meta name="twitter:image" content="" />
-		<meta name="twitter:url" content="" />
-		<meta name="twitter:card" content="" />
-
-		<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-		<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
-		
-		<link rel="stylesheet" href="css/animate.css">
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/magnific-popup.css">
-		<link rel="stylesheet" href="css/owl.carousel.min.css">
-		<link rel="stylesheet" href="css/owl.theme.default.min.css">
-		<link rel="stylesheet" href="css/style.css">
-
-		<script src="js/modernizr-2.6.2.min.js"></script>
-		<script>
-			function getParameterByName(name, url = window.location.href) {
-			name = name.replace(/[\[\]]/g, '\\$&');
-			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-				results = regex.exec(url);
-			if (!results) return null;
-			if (!results[2]) return '';
-			return decodeURIComponent(results[2].replace(/\+/g, ' '));
-			}
-		
-			window.onload = function() {
-			var name = getParameterByName('name');
-			if (name) {
-				var welcomeElement = document.getElementById('welcome');
-				welcomeElement.textContent = 'Dear, ' + name + '!';
-			}
-			}
-		</script>
-
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script>
-
-		<link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
-
+	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script>
+		function getParameterByName(name, url = window.location.href) {
+		  name = name.replace(/[\[\]]/g, '\\$&');
+		  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			  results = regex.exec(url);
+		  if (!results) return null;
+		  if (!results[2]) return '';
+		  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		}
+	
+		window.onload = function() {
+		  var name = getParameterByName('name');
+		  if (name) {
+			var welcomeElement = document.getElementById('welcome');
+			welcomeElement.textContent = 'Dear, ' + name + '!';
+		  }
+		}
+	  </script>
 	</head>
 	<body>
 		
@@ -255,6 +247,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<div class="simply-countdown simply-countdown-one"></div>
 					<h2>Will You Be Attending The Event?</h2>
+					<!-- <p>Please fill out the form to confirm your attendance</p> -->
 				</div>
 			</div>
 			
@@ -262,11 +255,13 @@
 				<div class="col-md-10 col-md-offset-1">
 					<form class="form-inline" name="attendance-form" method="POST">
 
+						<!-- Name -->
 						<div class="form-group">
 							<label for="name" class="form-title">Name</label>
 							<input type="text" class="form-control" id="name" placeholder="Please enter your name">
 						</div>
 	
+						<!-- Attending -->
 						<div class="form-group">
 							<label class="form-title">Will you be attending the event?</label>
 							<div>
@@ -277,6 +272,7 @@
 							</div>
 						</div>
 	
+						<!-- People -->
 						<div class="form-group" id="attendanceNumber" style="display: none;">
 							<label class="form-title">If attending, how many individuals will be joining?</label>
 							<div>
@@ -286,7 +282,8 @@
 								<label for="twoPeople" class="form-text">Two of us will be attending!</label>
 							</div>
 						</div>
-
+	
+						<!-- wishes -->
 						<div class="form-group">
 							<label for="wishes" class="form-title">Please share your wishes for the couple:</label>
 							<textarea class="form-control" id="wishes" rows="3"></textarea>
@@ -299,11 +296,13 @@
 		</div>
 	</div>
 
-	<!-- <div id="fh5co-testimonial">
+	<div id="fh5co-testimonial">
 		<div class="container">
 			<div class="row">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<!-- <p>And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.</p>
+						<p>Q.S. Ar Rum (30): Verse 21</p> -->
 						<span>Best Wishes</span>
 						<h2>Friends Wishes</h2>
 					</div>
@@ -351,7 +350,7 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<div id="fh5co-gallery" class="fh5co-section-gray">
 		<div class="container">
@@ -364,7 +363,86 @@
 			</div>
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
-					<div id="nanogallery2">Our Moments</div>
+					<ul id="fh5co-gallery-list">
+						
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-1.JPG); "> 
+						<a href="images/gallery-1.JPG">
+							<div class="case-studies-summary">
+								<!-- <span>14 Photos</span> -->
+								<!-- <h2>Two Glas of Juice</h2> -->
+							</div>
+						</a>
+					</li>
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-2.JPG); ">
+						<a href="#" class="color-2">
+							<div class="case-studies-summary">
+								<!-- <span>30 Photos</span>
+								<h2>Timer starts now!</h2> -->
+							</div>
+						</a>
+					</li>
+
+
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-3.JPG); ">
+						<a href="#" class="color-3">
+							<div class="case-studies-summary">
+								<!-- <span>90 Photos</span>
+								<h2>Beautiful sunset</h2> -->
+							</div>
+						</a>
+					</li>
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-4.JPG); ">
+						<a href="#" class="color-4">
+							<div class="case-studies-summary">
+								<!-- <span>12 Photos</span>
+								<h2>Company's Conference Room</h2> -->
+							</div>
+						</a>
+					</li>
+
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-5.JPG); ">
+							<a href="#" class="color-3">
+								<div class="case-studies-summary">
+									<!-- <span>50 Photos</span>
+									<h2>Useful baskets</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-6.JPG); ">
+							<a href="#" class="color-4">
+								<div class="case-studies-summary">
+									<!-- <span>45 Photos</span>
+									<h2>Skater man in the road</h2> -->
+								</div>
+							</a>
+						</li>
+
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-7.JPG); ">
+							<a href="#" class="color-4">
+								<div class="case-studies-summary">
+									<!-- <span>35 Photos</span>
+									<h2>Two Glas of Juice</h2> -->
+								</div>
+							</a>
+						</li>
+
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-8.JPG); "> 
+							<a href="#" class="color-5">
+								<div class="case-studies-summary">
+									<!-- <span>90 Photos</span>
+									<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-9.JPG); ">
+							<a href="#" class="color-6">
+								<div class="case-studies-summary">
+									<!-- <span>56 Photos</span>
+									<h2>Beautiful sunset</h2> -->
+								</div>
+							</a>
+						</li>
+					</ul>		
 				</div>
 			</div>
 		</div>
@@ -376,9 +454,9 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 	
-	<!-- <audio controls autoplay>
+	<audio controls autoplay>
 		<source src="/media/muara.mp3" type="audio/mpeg">
-	</audio> -->
+	</audio>
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.easing.1.3.js"></script>
@@ -393,6 +471,21 @@
 	<script src="js/main.js"></script>
 
 	<script>
+	// var d = new Date(2023, 10, 28);
+
+    // simplyCountdown('.simply-countdown-one', {
+    //     year: d.getFullYear(),
+    //     month: d.getMonth() + 1,
+    //     day: d.getDate()
+    // });
+
+    // $('#simply-countdown-losange').simplyCountdown({
+    //     year: d.getFullYear(),
+    //     month: d.getMonth() + 1,
+    //     day: d.getDate(),
+    //     enableUtc: false
+    // });
+
 	simplyCountdown('.simply-countdown-one', {
         year: 2023,
         month: 10,
@@ -415,67 +508,50 @@
         document.getElementById("attendanceNumber").style.display = "none";
     }
 
-$(function() {
+	$(function() {
 	$('#submit').on('click', function() {
+	// name
 	var name = $('#name').val() || 'no set';
-
+	// attending
 	var attending = function() {
-		var v;
-		$('[name="entry.164254037"]').each(function() {
-		if($(this).prop('checked') === true) v = $(this).val();
-		});
-		return v;
+	var v;
+	$('[name="entry.164254037"]').each(function() {
+	if($(this).prop('checked') === true) v = $(this).val();
+	});
+	return v;
 	};
-
+	// number
 	var numberOfPeople = function() {
-		var v;
-		$('[name="entry.678699127"]').each(function() {
-		if($(this).prop('checked') === true) v = $(this).val();
-		});
-		return v;
+	var v;
+	$('[name="entry.678699127"]').each(function() {
+	if($(this).prop('checked') === true) v = $(this).val();
+	});
+	return v;
 	};
-
+	// wishes
 	var wishes = $('#wishes').val() || 'no set';
 
+	// post
 	var data = {
 	'entry.1717783849': name,
 	'entry.164254037': attending(),
 	'entry.678699127': numberOfPeople(),
 	'entry.539757192': wishes
 	};
-
 	$.ajax({
-		type: 'POST',
-		url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
-		data: data,
-		contentType: 'application/json',
-		dataType: 'jsonp',
-			complete: function() {
-			alert('Waiting for you!');
-			$('#name').val('');
-			$('[name="entry.164254037"]').prop('checked', false);
-			$('[name="entry.678699127"]').prop('checked', false);
-			$('#wishes').val('');
-			}
-		});
+	type: 'POST',
+	url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
+	data: data,
+	contentType: 'application/json',
+	dataType: 'jsonp',
+	complete: function() {
+	alert('Waiting for you!');
+	}
+	});
+	});
 	});
 
-});
-
-jQuery(document).ready(function () {
-
-jQuery("#nanogallery2").nanogallery2( {
-	thumbnailHeight: 150,
-	thumbnailWidth: 150,
-	itemsBaseURL: 'https://nanogallery2.nanostudio.org/samples/',
-	
-	items: [
-		{ src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' },
-		// { src: 'berlin2.jpg', srct: 'berlin2_t.jpg', title: 'Berlin 2' },
-		// { src: 'berlin3.jpg', srct: 'berlin3_t.jpg', title: 'Berlin 3' }
-	  ]
-  });
-});
 	</script>
 	</body>
 </html>
+
