@@ -48,12 +48,14 @@
 			}
 		</script>
 
+		<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css" rel="stylesheet">
 		<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script> -->
 		<!-- <script src="js/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script> -->
-
+<!-- 
 		<link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script> -->
 
 	</head>
 	<body>
@@ -366,7 +368,7 @@
 			</div>
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
-					<div id="nanogallery2">Our Moments</div>
+					<div id="galeri"></div>
 				</div>
 			</div>
 		</div>
@@ -397,15 +399,6 @@
 	<script>
 	// var legacyJQuery = $.noConflict();
 
-	jQuery("#nanogallery2").nanogallery2({
-		thumbnailHeight: 150,
-		thumbnailWidth: 150,
-		itemsBaseURL: './images/',
-		items: [
-			{ src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
-		]
-	});
-
 	simplyCountdown('.simply-countdown-one', {
         year: 2023,
         month: 10,
@@ -428,8 +421,45 @@
         document.getElementById("attendanceNumber").style.display = "none";
     }
 
-$(function() {
-// $(document).ready(function () {
+
+	function fetchImageFilenames(callback) {
+		const imagesFolder = './images/';
+		fetch(imagesFolder)
+			.then((response) => response.text())
+			.then((html) => {
+				const parser = new DOMParser();
+				const doc = parser.parseFromString(html, 'text/html');
+				const links = Array.from(doc.querySelectorAll('a'));
+				const imageFilenames = links
+					.filter((link) => link.href.match(/\.(jpe?g|png|gif|bmp|webp)$/i))
+					.map((link) => link.href.replace(window.location.origin + imagesFolder, ''));
+				callback(imageFilenames);
+			});
+	}
+
+	function shuffleArray(array) {
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+	}
+
+	fetchImageFilenames(function (imageFileNames) {
+		shuffleArray(imageFileNames);
+
+		const galeri = document.getElementById('galeri');
+		imageFileNames.forEach((fileName) => {
+			const imageUrl = `./images/${fileName}`;
+			const anchorTag = document.createElement('a');
+			anchorTag.href = imageUrl;
+			const imgTag = document.createElement('img');
+			imgTag.src = imageUrl;
+			anchorTag.appendChild(imgTag);
+			galeri.appendChild(anchorTag);
+		});
+
+// $(function() {
+$(document).ready(function () {
 	$('#submit').on('click', function() {
 	var name = $('#name').val() || 'no set';
 
@@ -472,7 +502,14 @@ $(function() {
 			$('#wishes').val('');
 			}
 		});
+
+	$('#galeri').justifiedGallery({
+            rowHeight: 150,
+            margins: 5,
+			randomize: true,
+        });
 	});
+});
 });
 	// try {
     //     jQuery("#nanogallery2").nanogallery2( {
