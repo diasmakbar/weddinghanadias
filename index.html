@@ -426,71 +426,19 @@ $(window).on('load', function() {
             rowHeight: 150,
             margins: 5,
 			randomize: true,
-        });
+			lastRow: 'justify',
+			rel : 'gallery1',
+        }).on('jg.complete', function () {
+    $(this).find('a').colorbox({
+        maxWidth : '80%',
+        maxHeight : '80%',
+        opacity : 0.8,
+        transition : 'elastic',
+        current : ''
+    });
 	});
+});
 });
 	</script>
 	</body>
 </html>
-
-
-<!-- // const imageFileNames = [
-// 	'bride_old.jpg',
-// 	'bride-2.jpg',
-// 	'bride.jpg',
-// 	'couple-1.jpg',
-// 	'couple-2.jpg',
-// 	'couple-3.jpg',
-// 	'couple1.jpg',
-// 	'couple2.jpg',
-// 	'couple3.jpg',
-// 	'couple4.jpg',
-// ];
-
-// function shuffleArray(array) {
-// 	for (let i = array.length - 1; i > 0; i--) {
-// 		const j = Math.floor(Math.random() * (i + 1));
-// 		[array[i], array[j]] = [array[j], array[i]];
-// 	}
-// }
-
-// shuffleArray(imageFileNames);
-
-// const galeri = document.getElementById('galeri');
-// imageFileNames.forEach((fileName) => {
-// 	const imageUrl = `./images/${fileName}`;
-// 	const anchorTag = document.createElement('a');
-// 	anchorTag.href = imageUrl;
-// 	const imgTag = document.createElement('img');
-// 	imgTag.src = imageUrl;
-// 	anchorTag.appendChild(imgTag);
-// 	galeri.appendChild(anchorTag);
-// });
-
-// $(function() {
-// });
-// try {
-//     jQuery("#nanogallery2").nanogallery2( {
-//         thumbnailHeight: 150,
-//         thumbnailWidth: 150,
-//         itemsBaseURL: './images/',
-//         items: [
-//             { src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
-//         ]
-//     });
-// } catch (error) {
-//     console.error("NanoGallery2 initialization error:", error);
-// }
-// });
-
-// jQuery(document).ready(function () {
-
-// jQuery("#nanogallery2").nanogallery2( {
-// 	thumbnailHeight: 150,
-// 	thumbnailWidth: 150,
-// 	itemsBaseURL: './images/',
-
-// 	items: [
-// 		{ src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
-// 	  ]
-//   }); -->
