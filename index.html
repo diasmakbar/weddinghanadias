@@ -415,7 +415,8 @@
         document.getElementById("attendanceNumber").style.display = "none";
     }
 
-$(function() {
+// $(function() {
+$(document).ready(function () {
 	$('#submit').on('click', function() {
 	var name = $('#name').val() || 'no set';
 
@@ -460,9 +461,9 @@ $(function() {
 		});
 	});
 
-});
+// });
 
-jQuery(document).ready(function () {
+// jQuery(document).ready(function () {
 
 jQuery("#nanogallery2").nanogallery2( {
 	thumbnailHeight: 150,
@@ -470,9 +471,7 @@ jQuery("#nanogallery2").nanogallery2( {
 	itemsBaseURL: './images/',
 	
 	items: [
-		{ src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' },
-		// { src: 'berlin2.jpg', srct: 'berlin2_t.jpg', title: 'Berlin 2' },
-		// { src: 'berlin3.jpg', srct: 'berlin3_t.jpg', title: 'Berlin 3' }
+		{ src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
 	  ]
   });
 });
