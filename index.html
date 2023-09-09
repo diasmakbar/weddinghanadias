@@ -319,60 +319,6 @@
 		</div>
 	</div>
 
-	<!-- <div id="fh5co-testimonial">
-		<div class="container">
-			<div class="row">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<span>Best Wishes</span>
-						<h2>Friends Wishes</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 animate-box">
-						<div class="wrap-testimony">
-							<div class="owl-carousel-fullwidth">
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/couple-1.JPG" alt="user">
-										</figure>
-										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics"</p>
-										</blockquote>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/couple-2.JPG" alt="user">
-										</figure>
-										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, at the coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/couple-3.JPG" alt="user">
-										</figure>
-										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-										<blockquote>
-											<p>"Far far away, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 	<div id="fh5co-gallery" class="fh5co-section-gray">
 		<div class="container">
 			<div class="row">
@@ -384,12 +330,12 @@
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
 					<div id="galeri">
-						<a href="images/bride-2.jpg"></a>
-						<a href="images/bride.jpg"></a>
-						<a href="images/bride_old.jpg"></a>
-						<a href="images/couple-1.jpg"></a>
-						<a href="images/couple-2.jpg"></a>
-						<a href="images/couple-3.jpg"></a>
+						<a href="images/bride-2.jpg"><img src="images/bride-2.jpg" alt="Bride 2"></a>
+						<a href="images/bride.jpg"><img src="images/bride.jpg" alt="Bride"></a>
+						<a href="images/bride_old.jpg"><img src="images/bride_old.jpg" alt="Bride Old"></a>
+						<a href="images/couple-1.jpg"><img src="images/couple-1.jpg" alt="Couple 1"></a>
+						<a href="images/couple-2.jpg"><img src="images/couple-2.jpg" alt="Couple 2"></a>
+						<a href="images/couple-3.jpg"><img src="images/couple-3.jpg" alt="Couple 3"></a>
 					</div>
 				</div>
 			</div>
@@ -406,21 +352,7 @@
 		<source src="/media/muara.mp3" type="audio/mpeg">
 	</audio> -->
 
-	<!-- <script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.justifiedGallery.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.countTo.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-	<script src="js/simplyCountdown.js"></script>
-	<script src="js/main.js"></script> -->
-
 	<script>
-	// var legacyJQuery = $.noConflict();
 
 	simplyCountdown('.simply-countdown-one', {
         year: 2023,
@@ -444,40 +376,6 @@
         document.getElementById("attendanceNumber").style.display = "none";
     }
 
-	// const imageFileNames = [
-	// 	'bride_old.jpg',
-	// 	'bride-2.jpg',
-	// 	'bride.jpg',
-	// 	'couple-1.jpg',
-	// 	'couple-2.jpg',
-	// 	'couple-3.jpg',
-	// 	'couple1.jpg',
-	// 	'couple2.jpg',
-	// 	'couple3.jpg',
-	// 	'couple4.jpg',
-	// ];
-
-	// function shuffleArray(array) {
-	// 	for (let i = array.length - 1; i > 0; i--) {
-	// 		const j = Math.floor(Math.random() * (i + 1));
-	// 		[array[i], array[j]] = [array[j], array[i]];
-	// 	}
-	// }
-
-	// shuffleArray(imageFileNames);
-
-	// const galeri = document.getElementById('galeri');
-	// imageFileNames.forEach((fileName) => {
-	// 	const imageUrl = `./images/${fileName}`;
-	// 	const anchorTag = document.createElement('a');
-	// 	anchorTag.href = imageUrl;
-	// 	const imgTag = document.createElement('img');
-	// 	imgTag.src = imageUrl;
-	// 	anchorTag.appendChild(imgTag);
-	// 	galeri.appendChild(anchorTag);
-	// });
-
-// $(function() {
 $(document).ready(function () {
 	$('#submit').on('click', function() {
 	var name = $('#name').val() || 'no set';
@@ -523,25 +421,64 @@ $(document).ready(function () {
 		});
 
 	$('#galeri').justifiedGallery({
-            rowHeight: 50,
+            rowHeight: 150,
             margins: 5,
 			randomize: true,
         });
 	});
 });
+	</script>
+	</body>
+</html>
+
+
+<!-- // const imageFileNames = [
+// 	'bride_old.jpg',
+// 	'bride-2.jpg',
+// 	'bride.jpg',
+// 	'couple-1.jpg',
+// 	'couple-2.jpg',
+// 	'couple-3.jpg',
+// 	'couple1.jpg',
+// 	'couple2.jpg',
+// 	'couple3.jpg',
+// 	'couple4.jpg',
+// ];
+
+// function shuffleArray(array) {
+// 	for (let i = array.length - 1; i > 0; i--) {
+// 		const j = Math.floor(Math.random() * (i + 1));
+// 		[array[i], array[j]] = [array[j], array[i]];
+// 	}
+// }
+
+// shuffleArray(imageFileNames);
+
+// const galeri = document.getElementById('galeri');
+// imageFileNames.forEach((fileName) => {
+// 	const imageUrl = `./images/${fileName}`;
+// 	const anchorTag = document.createElement('a');
+// 	anchorTag.href = imageUrl;
+// 	const imgTag = document.createElement('img');
+// 	imgTag.src = imageUrl;
+// 	anchorTag.appendChild(imgTag);
+// 	galeri.appendChild(anchorTag);
 // });
-	// try {
-    //     jQuery("#nanogallery2").nanogallery2( {
-    //         thumbnailHeight: 150,
-    //         thumbnailWidth: 150,
-    //         itemsBaseURL: './images/',
-    //         items: [
-    //             { src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
-    //         ]
-    //     });
-    // } catch (error) {
-    //     console.error("NanoGallery2 initialization error:", error);
-    // }
+
+// $(function() {
+// });
+// try {
+//     jQuery("#nanogallery2").nanogallery2( {
+//         thumbnailHeight: 150,
+//         thumbnailWidth: 150,
+//         itemsBaseURL: './images/',
+//         items: [
+//             { src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
+//         ]
+//     });
+// } catch (error) {
+//     console.error("NanoGallery2 initialization error:", error);
+// }
 // });
 
 // jQuery(document).ready(function () {
@@ -550,11 +487,8 @@ $(document).ready(function () {
 // 	thumbnailHeight: 150,
 // 	thumbnailWidth: 150,
 // 	itemsBaseURL: './images/',
-	
+
 // 	items: [
 // 		{ src: 'images/bride-2.JPG', srct: 'bride-2.jpg', title: 'Bride' }
 // 	  ]
-//   });
-	</script>
-	</body>
-</html>
+//   }); -->
