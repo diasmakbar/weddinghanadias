@@ -330,12 +330,12 @@
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
 					<div id="galeri">
-						<a href="images/bride-2.jpg"><img src="images/bride-2.jpg" alt="Bride 2"></a>
-						<a href="images/bride.jpg"><img src="images/bride.jpg" alt="Bride"></a>
-						<a href="images/bride_old.jpg"><img src="images/bride_old.jpg" alt="Bride Old"></a>
-						<a href="images/couple-1.jpg"><img src="images/couple-1.jpg" alt="Couple 1"></a>
-						<a href="images/couple-2.jpg"><img src="images/couple-2.jpg" alt="Couple 2"></a>
-						<a href="images/couple-3.jpg"><img src="images/couple-3.jpg" alt="Couple 3"></a>
+						<a href="images/bride-2.jpg" class="swipeboxImg"><img src="images/bride-2.jpg" alt="Bride 2"></a>
+						<a href="images/bride.jpg" class="swipeboxImg"><img src="images/bride.jpg" alt="Bride"></a>
+						<a href="images/bride_old.jpg" class="swipeboxImg"><img src="images/bride_old.jpg" alt="Bride Old"></a>
+						<a href="images/couple-1.jpg" class="swipeboxImg"><img src="images/couple-1.jpg" alt="Couple 1"></a>
+						<a href="images/couple-2.jpg" class="swipeboxImg"><img src="images/couple-2.jpg" alt="Couple 2"></a>
+						<a href="images/couple-3.jpg" class="swipeboxImg"><img src="images/couple-3.jpg" alt="Couple 3"></a>
 					</div>
 				</div>
 			</div>
@@ -423,20 +423,33 @@ $(document).ready(function () {
 
 $(window).on('load', function() {
 	$('#galeri').justifiedGallery({
-            rowHeight: 150,
-            margins: 5,
-			randomize: true,
-			lastRow: 'justify',
-			rel : 'gallery1',
-        }).on('jg.complete', function () {
-    $(this).find('a').colorbox({
-        maxWidth : '80%',
-        maxHeight : '80%',
-        opacity : 0.8,
-        transition : 'elastic',
-        current : ''
-    });
+		// lastRow : 'nojustify', 
+		// rowHeight : 100, 
+		// rel : 'gallery2',
+		// margins : 1
+		rowHeight: 150,
+		margins: 5,
+		randomize: true,
+		lastRow: 'justify',
+		rel : 'gallery1',
+	}).on('jg.complete', function () {
+		$('.swipeboxImg').swipebox();
 	});
+	// $('#galeri').justifiedGallery({
+    //         rowHeight: 150,
+    //         margins: 5,
+	// 		randomize: true,
+	// 		lastRow: 'justify',
+	// 		rel : 'gallery1',
+    //     }).on('jg.complete', function () {
+    // $(this).find('a').colorbox({
+    //     maxWidth : '80%',
+    //     maxHeight : '80%',
+    //     opacity : 0.8,
+    //     transition : 'elastic',
+    //     current : ''
+    // });
+	// });
 });
 });
 	</script>
