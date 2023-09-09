@@ -421,21 +421,18 @@
         document.getElementById("attendanceNumber").style.display = "none";
     }
 
-
-	function fetchImageFilenames(callback) {
-		const imagesFolder = './images/';
-		fetch(imagesFolder)
-			.then((response) => response.text())
-			.then((html) => {
-				const parser = new DOMParser();
-				const doc = parser.parseFromString(html, 'text/html');
-				const links = Array.from(doc.querySelectorAll('a'));
-				const imageFilenames = links
-					.filter((link) => link.href.match(/\.(jpe?g|png|gif|bmp|webp)$/i))
-					.map((link) => link.href.replace(window.location.origin + imagesFolder, ''));
-				callback(imageFilenames);
-			});
-	}
+	const imageFileNames = [
+		'bride-old.jpg',
+		'bride-2.jpg',
+		'bride.jpg',
+		'couple-1.jpg',
+		'couple-2.jpg',
+		'couple-3.jpg',
+		'couple1.jpg',
+		'couple2.jpg',
+		'couple3.jpg',
+		'couple4.jpg',
+	];
 
 	function shuffleArray(array) {
 		for (let i = array.length - 1; i > 0; i--) {
@@ -444,19 +441,18 @@
 		}
 	}
 
-	fetchImageFilenames(function (imageFileNames) {
-		shuffleArray(imageFileNames);
+	shuffleArray(imageFileNames);
 
-		const galeri = document.getElementById('galeri');
-		imageFileNames.forEach((fileName) => {
-			const imageUrl = `./images/${fileName}`;
-			const anchorTag = document.createElement('a');
-			anchorTag.href = imageUrl;
-			const imgTag = document.createElement('img');
-			imgTag.src = imageUrl;
-			anchorTag.appendChild(imgTag);
-			galeri.appendChild(anchorTag);
-		});
+	const galeri = document.getElementById('galeri');
+	imageFileNames.forEach((fileName) => {
+		const imageUrl = `./images/${fileName}`;
+		const anchorTag = document.createElement('a');
+		anchorTag.href = imageUrl;
+		const imgTag = document.createElement('img');
+		imgTag.src = imageUrl;
+		anchorTag.appendChild(imgTag);
+		galeri.appendChild(anchorTag);
+	});
 
 // $(function() {
 $(document).ready(function () {
