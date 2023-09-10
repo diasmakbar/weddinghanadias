@@ -60,13 +60,6 @@
 			return decodeURIComponent(results[2].replace(/\+/g, ' '));
 			}
 		
-			// window.onload = function() {
-			// var name = getParameterByName('name');
-			// if (name) {
-			// 	var welcomeElement = document.getElementById('welcome');
-			// 	welcomeElement.textContent = 'Dear, ' + name + '!';
-			// }
-			// }
 			document.addEventListener('DOMContentLoaded', function() {
 				var name = getParameterByName('name');
 				if (name) {
@@ -382,7 +375,7 @@
 	</script>
 
 	<script>
-	var eventDate = new Date(Date.UTC(2023, 9, 28, 14));
+	var eventDate = new Date(Date.UTC(2023, 9, 29, 4));
 	// eventDate.setHours(eventDate.getHours() + 7);
 
 	simplyCountdown('.simply-countdown-one', {
