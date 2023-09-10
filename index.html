@@ -498,6 +498,8 @@
 		var lastImageIndexE = 0;
 		var totalImagesP = 72;
 		var totalImagesE = 35;
+		var lastImageIndexS = 0;
+		var totalImagesS = 25;
 
 		function generateImages(numImages) {
 			var galeri = document.getElementById("galeri");
@@ -507,33 +509,45 @@
 				imgElement.href = "images/p" + i + ".jpg";
 				imgElement.className = "swipeboxImg";
 				var img = document.createElement("img");
-				img.src = "images/p" + i + ".jpg";
+				img.src = "images/s" + i + ".jpg";
 				img.loading = "lazy";
 				imgElement.appendChild(img);
 				galeri.appendChild(imgElement);
 			}
 
 			lastImageIndexP += numImages;
+			// for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
+			// 	var imgElement = document.createElement("a");
+			// 	imgElement.href = "images/p" + i + ".jpg";
+			// 	imgElement.className = "swipeboxImg";
+			// 	var img = document.createElement("img");
+			// 	img.src = "images/p" + i + ".jpg";
+			// 	img.loading = "lazy";
+			// 	imgElement.appendChild(img);
+			// 	galeri.appendChild(imgElement);
+			// }
 
-			for (var i = lastImageIndexE + 1; i <= Math.min(lastImageIndexE + numImages, totalImagesE); i++) {
-				var imgElement = document.createElement("a");
-				imgElement.href = "images/e" + i + ".jpg";
-				imgElement.className = "swipeboxImg";
-				var img = document.createElement("img");
-				img.src = "images/e" + i + ".jpg";
-				img.loading = "lazy";
-				imgElement.appendChild(img);
-				galeri.appendChild(imgElement);
-			}
+			// lastImageIndexP += numImages;
 
-			lastImageIndexE += numImages;
+			// for (var i = lastImageIndexE + 1; i <= Math.min(lastImageIndexE + numImages, totalImagesE); i++) {
+			// 	var imgElement = document.createElement("a");
+			// 	imgElement.href = "images/e" + i + ".jpg";
+			// 	imgElement.className = "swipeboxImg";
+			// 	var img = document.createElement("img");
+			// 	img.src = "images/e" + i + ".jpg";
+			// 	img.loading = "lazy";
+			// 	imgElement.appendChild(img);
+			// 	galeri.appendChild(imgElement);
+			// }
+
+			// lastImageIndexE += numImages;
 
 			$('.swipeboxImg').swipebox();
 
 		}
 
 		$(window).on('load', function() {
-			generateImages(20);
+			generateImages(10);
 
 			$('#galeri').justifiedGallery({
 				rowHeight: 150,
