@@ -353,6 +353,7 @@ var galeri = document.getElementById("galeri");
 		imgElement.className = "swipeboxImg";
 		var img = document.createElement("img");
 		img.src = "images/p" + i + ".jpg";
+		img.loading = "lazy";
 		imgElement.appendChild(img);
 		galeri.appendChild(imgElement);
 	}
@@ -363,6 +364,7 @@ var galeri = document.getElementById("galeri");
 		imgElement.className = "swipeboxImg";
 		var img = document.createElement("img");
 		img.src = "images/e" + i + ".jpg";
+		img.loading = "lazy";
 		imgElement.appendChild(img);
 		galeri.appendChild(imgElement);
 	}
