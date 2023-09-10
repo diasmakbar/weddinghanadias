@@ -457,7 +457,7 @@
 		function generateImages(numImages) {
 			var galeri = document.getElementById("galeri");
 
-			for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
+			for (var i = lastImageIndexS + 1; i <= Math.min(lastImageIndexS + numImages, totalImagesS); i++) {
 				var imgElement = document.createElement("a");
 				imgElement.href = "images/s" + i + ".jpg";
 				imgElement.className = "swipeboxImg";
