@@ -346,21 +346,24 @@
 	<script>
 		window.onload = function() {
 			var header = document.getElementById('fh5co-header');
-			if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+			if (window.innerWidth <= 768) {
+			// if (window.innerWidth <= 800 && window.innerHeight <= 600) {
 				header.style.backgroundImage = 'url(images/mobile_cover_atas.JPG)';
 			} else {
 				header.style.backgroundImage = 'url(images/cover_atas.JPG)';
 			}
 		
 			var event = document.getElementById('fh5co-event');
-			if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+			if (window.innerWidth <= 768) {
+			// if (window.innerWidth <= 800 && window.innerHeight <= 600) {
 				event.style.backgroundImage = 'url(images/mobile_cover2bw.JPG)';
 			} else {
 				event.style.backgroundImage = 'url(images/cover2bw.JPG)';
 			}
 		
 			var started = document.getElementById('fh5co-started');
-			if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+			if (window.innerWidth <= 768) {
+			// if (window.innerWidth <= 800 && window.innerHeight <= 600) {
 				started.style.backgroundImage = 'url(images/mobile_cover3.JPG)';
 			} else {
 				started.style.backgroundImage = 'url(images/cover3.JPG)';
