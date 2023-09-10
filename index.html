@@ -287,13 +287,13 @@
 							<input type="text" class="form-control" id="name" placeholder="Please enter your name">
 						</div>
 	
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label class="form-title">Will you be attending the event?</label>
 							<div>
 								<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
 								<label for="attendingYes" class="form-text">Yes, I will be there!</label>
-								<input type="radio" id="attendingNo" name="entry.164254037" value="No, but I'm sending my best wishes for your wedding!" onclick="hideAttendanceNumber()">
-								<label for="attendingNo" class="form-text">No, but I'm sending my best wishes for your wedding!</label>
+								<input type="radio" id="attendingNo" name="entry.164254037" value="Just sending my best wishes!" onclick="hideAttendanceNumber()">
+								<label for="attendingNo" class="form-text">Just sending my best wishes!</label>
 							</div>
 						</div>
 	
@@ -304,6 +304,34 @@
 								<label for="onePerson" class="form-text">It will be just me!</label>
 								<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
 								<label for="twoPeople" class="form-text">Two of us will be attending!</label>
+							</div>
+						</div> -->
+
+						<div class="form-group">
+							<label class="form-title">Will you be attending the event?</label>
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
+									<label for="attendingYes" class="form-text">Yes, I will be there!</label>
+								</div>
+								<div class="col-xs-12 col-md-6">
+									<input type="radio" id="attendingNo" name="entry.164254037" value="Just sending my best wishes!" onclick="hideAttendanceNumber()">
+									<label for="attendingNo" class="form-text">Just sending my best wishes!</label>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group" id="attendanceNumber" style="display: none;">
+							<label class="form-title">If attending, how many individuals will be joining?</label>
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									<input type="radio" id="onePerson" name="entry.678699127" value="It will be just me!">
+									<label for="onePerson" class="form-text">It will be just me!</label>
+								</div>
+								<div class="col-xs-12 col-md-6">
+									<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
+									<label for="twoPeople" class="form-text">Two of us will be attending!</label>
+								</div>
 							</div>
 						</div>
 
@@ -492,7 +520,7 @@
 				rowHeight: 150,
 				margins: 5,
 				randomize: true,
-				lastRow: 'justify',
+				lastRow: 'center',
 				rel : 'gallery1',
 			}).on('jg.complete', function () {
 				$('.swipeboxImg').swipebox();
