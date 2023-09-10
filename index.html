@@ -80,7 +80,8 @@
 			document.addEventListener('DOMContentLoaded', function() {
 			  var names = getParameterByName('name');
 			  if (names) {
-				var nameList = names.split('&');
+				var separator = names.includes('&') ? '&' : '';
+				var nameList = names.split(separator);
 				var welcomeElement = document.getElementById('welcome');
 				welcomeElement.textContent = 'Dear, ' + nameList.map(decodeURI).join(' & ') + '!';
 			  }
