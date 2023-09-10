@@ -50,6 +50,27 @@
 		<script src="js/jquery.justifiedGallery.min.js"></script>
 		<script src="js/modernizr-2.6.2.min.js"></script>
 
+		<!-- <script>
+			function getParameterByName(name, url = window.location.href) {
+			name = name.replace(/[\[\]]/g, '\\$&');
+			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+		
+			document.addEventListener('DOMContentLoaded', function() {
+				var names = getParameterByName('name');
+				if (names) {
+					var nameList = names.split('&');
+					var welcomeElement = document.getElementById('welcome');
+					// welcomeElement.textContent = 'Dear, ' + name + '!';
+					welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
+				}
+			});
+		</script> -->
+
 		<script>
 			function getParameterByName(name, url = window.location.href) {
 			  const searchParams = new URLSearchParams(new URL(url).search);
@@ -71,11 +92,9 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-	<div id="loading" style="display: none;">
-		<img src="/images/loader.gif" alt="Loading...">
-	</div>
 	
 	<header id="fh5co-header" class="fh5co-cover" role="banner" data-stellar-background-ratio="0.5">
+	<!-- <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/cover_atas.JPG);" data-stellar-background-ratio="0.5"> -->
 		<div class="overlay"></div>
 		
 		<div class="container">
@@ -98,6 +117,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<!-- <h2 id="welcome"></h2> -->
 					<h2 id="welcome">Dear, Guest!</h2>
 					<h4>We warmly invite you to share our joy as we unite in marriage</h4>
 				</div>
@@ -133,6 +153,7 @@
 	</div>
 
 	<div id="fh5co-event" class="fh5co-bg">
+	<!-- <div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/cover2bw.JPG);"> -->
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -157,9 +178,11 @@
 										<span>Saturday, 28 October 2023</span>
 									</div>
 
+									<!-- <div class="event-col"> -->
 										<i class="icon-location"></i>
 										<span>Masjid A. R. Fachruddin (Masjid UMM)</span>
 										<span><a href="https://goo.gl/maps/ZWibDjUkuyhh2a516" target="_blank">Show Map</a></span>
+									<!-- </div> -->
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 text-center">
@@ -175,9 +198,11 @@
 										<span>Saturday, 28 October 2023</span>
 									</div>
 
+									<!-- <div class="event-col"> -->
 										<i class="icon-location"></i>
 										<span>Dome Universitas Muhammadiyah Malang</span>
 										<span><a href="https://goo.gl/maps/ZPCu2jkEHhuTMcuX7" target="_blank">Show Map</a></span>
+									<!-- </div> -->
 								</div>
 							</div>
 						</div>
@@ -262,6 +287,7 @@
 	</div>
 
 	<div id="fh5co-started" class="fh5co-bg">
+	<!-- <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/cover3.JPG);"> -->
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
@@ -279,6 +305,26 @@
 							<label for="name" class="form-title">Name</label>
 							<input type="text" class="form-control" id="name" placeholder="Please enter your name">
 						</div>
+	
+						<!-- <div class="form-group">
+							<label class="form-title">Will you be attending the event?</label>
+							<div>
+								<input type="radio" id="attendingYes" name="entry.164254037" value="Yes, I will be there!" onclick="showAttendanceNumber()">
+								<label for="attendingYes" class="form-text">Yes, I will be there!</label>
+								<input type="radio" id="attendingNo" name="entry.164254037" value="Just sending my best wishes!" onclick="hideAttendanceNumber()">
+								<label for="attendingNo" class="form-text">Just sending my best wishes!</label>
+							</div>
+						</div>
+	
+						<div class="form-group" id="attendanceNumber" style="display: none;">
+							<label class="form-title">If attending, how many individuals will be joining?</label>
+							<div>
+								<input type="radio" id="onePerson" name="entry.678699127" value="It will be just me!">
+								<label for="onePerson" class="form-text">It will be just me!</label>
+								<input type="radio" id="twoPeople" name="entry.678699127" value="Two of us will be attending!">
+								<label for="twoPeople" class="form-text">Two of us will be attending!</label>
+							</div>
+						</div> -->
 
 						<div class="form-group">
 							<label class="form-title">Will you be attending the event?</label>
@@ -351,6 +397,7 @@
 		window.onload = function() {
 			var header = document.getElementById('fh5co-header');
 			if (window.innerWidth <= 768) {
+			// if (window.innerWidth <= 800 && window.innerHeight <= 600) {
 				header.style.backgroundImage = 'url(images/mobile_cover_atas.JPG)';
 			} else {
 				header.style.backgroundImage = 'url(images/cover_atas.JPG)';
@@ -358,6 +405,7 @@
 		
 			var event = document.getElementById('fh5co-event');
 			if (window.innerWidth <= 768) {
+			// if (window.innerWidth <= 800 && window.innerHeight <= 600) {
 				event.style.backgroundImage = 'url(images/mobile_cover2bw.JPG)';
 			} else {
 				event.style.backgroundImage = 'url(images/cover2bw.JPG)';
@@ -365,8 +413,11 @@
 		
 			var started = document.getElementById('fh5co-started');
 			if (window.innerWidth <= 768) {
+			// if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+				// started.style.backgroundImage = 'url(images/mobile_cover3.JPG)';
 				started.style.backgroundImage = 'url(images/coverform.JPG)';
 			} else {
+				// started.style.backgroundImage = 'url(images/cover3.JPG)';
 				started.style.backgroundImage = 'url(images/mobile_coverform.JPG)';
 			}
 		}
@@ -374,6 +425,7 @@
 
 	<script>
 	var eventDate = new Date(Date.UTC(2023, 9, 28, 1));
+	// eventDate.setHours(eventDate.getHours() + 7);
 
 	simplyCountdown('.simply-countdown-one', {
 		year: eventDate.getFullYear(),
@@ -399,11 +451,6 @@
 
 	$(document).ready(function () {
 		$('#submit').on('click', function() {
-
-			event.preventDefault();
-						
-			$('#loading').show();
-
 			var name = $('#name').val() || 'no set';
 
 			var attending = function() {
@@ -437,18 +484,14 @@
 				data: data,
 				contentType: 'application/json',
 				dataType: 'jsonp',
-				complete: function() {
-				$('#loading').hide();
-
-				alert('Waiting for you!');
-				
-				$('#name').val('');
-				$('[name="entry.164254037"]').prop('checked', false);
-				$('[name="entry.678699127"]').prop('checked', false);
-				$('#wishes').val('');
-				
-				}
-			});
+					complete: function() {
+					alert('Waiting for you!');
+					$('#name').val('');
+					$('[name="entry.164254037"]').prop('checked', false);
+					$('[name="entry.678699127"]').prop('checked', false);
+					$('#wishes').val('');
+					}
+				});
 		});
 
 		var lastImageIndexP = 0;
@@ -473,6 +516,31 @@
 			}
 
 			lastImageIndexP += numImages;
+			// for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
+			// 	var imgElement = document.createElement("a");
+			// 	imgElement.href = "images/p" + i + ".jpg";
+			// 	imgElement.className = "swipeboxImg";
+			// 	var img = document.createElement("img");
+			// 	img.src = "images/p" + i + ".jpg";
+			// 	img.loading = "lazy";
+			// 	imgElement.appendChild(img);
+			// 	galeri.appendChild(imgElement);
+			// }
+
+			// lastImageIndexP += numImages;
+
+			// for (var i = lastImageIndexE + 1; i <= Math.min(lastImageIndexE + numImages, totalImagesE); i++) {
+			// 	var imgElement = document.createElement("a");
+			// 	imgElement.href = "images/e" + i + ".jpg";
+			// 	imgElement.className = "swipeboxImg";
+			// 	var img = document.createElement("img");
+			// 	img.src = "images/e" + i + ".jpg";
+			// 	img.loading = "lazy";
+			// 	imgElement.appendChild(img);
+			// 	galeri.appendChild(imgElement);
+			// }
+
+			// lastImageIndexE += numImages;
 
 			$('.swipeboxImg').swipebox();
 
@@ -502,3 +570,61 @@
 	</script>
 	</body>
 </html>
+
+	<!-- <script>
+
+// simplyCountdown('.simply-countdown-one', {
+// 	year: 2023,
+// 	month: 10,
+// 	day: 28,
+// 	hour: 1
+// });
+
+// $('#simply-countdown-losange').simplyCountdown({
+// 	year: 2023,
+// 	month: 10,
+// 	day: 28,
+// 	hour: 1
+// });
+			// $(window).on('load', function() {
+
+	// 	generateImages();
+
+	// 	$('#galeri').justifiedGallery({
+	// 		rowHeight: 150,
+	// 		margins: 5,
+	// 		randomize: true,
+	// 		lastRow: 'justify',
+	// 		rel : 'gallery1',
+	// 		}).on('jg.complete', function () {
+	// 			$('.swipeboxImg').swipebox();
+	// 			});
+
+	// 	window.addEventListener("load", generateImages);
+	// });
+		function generateImages() {
+var galeri = document.getElementById("galeri");
+
+	for (var i = 1; i <= 72; i++) {
+		var imgElement = document.createElement("a");
+		imgElement.href = "images/p" + i + ".jpg";
+		imgElement.className = "swipeboxImg";
+		var img = document.createElement("img");
+		img.src = "images/p" + i + ".jpg";
+		img.loading = "lazy";
+		imgElement.appendChild(img);
+		galeri.appendChild(imgElement);
+	}
+
+	for (var i = 1; i <= 35; i++) {
+		var imgElement = document.createElement("a");
+		imgElement.href = "images/e" + i + ".jpg";
+		imgElement.className = "swipeboxImg";
+		var img = document.createElement("img");
+		img.src = "images/e" + i + ".jpg";
+		img.loading = "lazy";
+		imgElement.appendChild(img);
+		galeri.appendChild(imgElement);
+	}
+}
+	</script> -->
