@@ -370,18 +370,35 @@ var galeri = document.getElementById("galeri");
 	}
 }
 
+// simplyCountdown('.simply-countdown-one', {
+// 	year: 2023,
+// 	month: 10,
+// 	day: 28,
+// 	hour: 1
+// });
+
+// $('#simply-countdown-losange').simplyCountdown({
+// 	year: 2023,
+// 	month: 10,
+// 	day: 28,
+// 	hour: 1
+// });
+
+var eventDate = new Date(Date.UTC(2023, 9, 28, 1)); // Months are 0-based in JavaScript Date
+eventDate.setHours(eventDate.getHours() + 7); // Adjust for GMT+7
+
 simplyCountdown('.simply-countdown-one', {
-	year: 2023,
-	month: 10,
-	day: 28,
-	hour: 1
+    year: eventDate.getFullYear(),
+    month: eventDate.getMonth() + 1, // Months are 0-based in JavaScript Date
+    day: eventDate.getDate(),
+    hour: eventDate.getHours()
 });
 
 $('#simply-countdown-losange').simplyCountdown({
-	year: 2023,
-	month: 10,
-	day: 28,
-	hour: 1
+    year: eventDate.getFullYear(),
+    month: eventDate.getMonth() + 1, // Months are 0-based in JavaScript Date
+    day: eventDate.getDate(),
+    hour: eventDate.getHours()
 });
 
 function showAttendanceNumber() {
