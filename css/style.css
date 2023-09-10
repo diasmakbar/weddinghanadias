@@ -904,15 +904,16 @@ form label {
   font-size: 100px;
   line-height: 1.5;
   /* font-family: "Sacramento", Arial, serif; */
-  /* font-family: "Kaushan Script", Arial, serif; */
-  font-family: "Just Another Hand", Arial, serif;
+  font-family: "Kaushan Script", Arial, serif;
+  /* font-family: "Just Another Hand", Arial, serif; */
 }
 
 #fh5co-header .display-tt h1 {
   font-size: 100px;
   line-height: 1.5;
   /* font-family: "Sacramento", Arial, serif; */
-  font-family: "Just Another Hand", Arial, serif;
+  /* font-family: "Just Another Hand", Arial, serif; */
+  font-family: "Kaushan Script", Arial, serif;
 }
 
 .header-title {
