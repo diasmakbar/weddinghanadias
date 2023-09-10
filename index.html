@@ -80,10 +80,10 @@
 			document.addEventListener('DOMContentLoaded', function() {
 			  var names = getParameterByName('name');
 			  if (names) {
-				var separator = ',';
+				var separator = '_';
 				var nameList = names.split(separator);
 				var welcomeElement = document.getElementById('welcome');
-				welcomeElement.textContent = 'Dear, ' + nameList.map(decodeURI).join(' & ') + '!';
+				welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
 			  }
 			});
 		  </script>
