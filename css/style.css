@@ -901,7 +901,8 @@ form label {
 #fh5co-counter .display-tc h1,
 .fh5co-cover .display-tc h1 {
   margin-bottom: 0px;
-  font-size: 100px;
+  /* font-size: 100px; */
+  font-size: 75px;
   line-height: 1.5;
   /* font-family: "Sacramento", Arial, serif; */
   font-family: "Kaushan Script", Arial, serif;
@@ -909,7 +910,8 @@ form label {
 }
 
 #fh5co-header .display-tt h1 {
-  font-size: 100px;
+  /* font-size: 100px; */
+  font-size: 75px;
   line-height: 1.5;
   /* font-family: "Sacramento", Arial, serif; */
   /* font-family: "Just Another Hand", Arial, serif; */
@@ -917,7 +919,8 @@ form label {
 }
 
 .header-title {
-  margin-top: 100px; /* Adjust the top margin as desired */
+  /* margin-top: 100px; Adjust the top margin as desired */
+  margin-top: 75px;
 }
 
 .header-subtitle {
@@ -1145,7 +1148,8 @@ form label {
   }
 }
 .couple-half h3 {
-  font-family: "Sacramento", Arial, serif;
+  /* font-family: "Sacramento", Arial, serif; */
+  font-family: "Kaushan Script", Arial, serif;
   /* color: #F14E95; */
   color: #442100;
   font-size: 30px;
@@ -1265,7 +1269,8 @@ form label {
   font-weight: bold;
   /* color: #F14E95; */
   color: #442100;
-  font-family: "Sacramento", Arial, serif;
+  /* font-family: "Sacramento", Arial, serif; */
+  font-family: "Kaushan Script", Arial, serif;
 }
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
