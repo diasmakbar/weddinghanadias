@@ -50,7 +50,7 @@
 		<script src="js/jquery.justifiedGallery.min.js"></script>
 		<script src="js/modernizr-2.6.2.min.js"></script>
 
-		<script>
+		<!-- <script>
 			function getParameterByName(name, url = window.location.href) {
 			name = name.replace(/[\[\]]/g, '\\$&');
 			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -61,15 +61,35 @@
 			}
 		
 			document.addEventListener('DOMContentLoaded', function() {
-				var name = getParameterByName('name');
-				if (name) {
+				var names = getParameterByName('name');
+				if (names) {
 					var nameList = names.split('&');
 					var welcomeElement = document.getElementById('welcome');
 					// welcomeElement.textContent = 'Dear, ' + name + '!';
 					welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
 				}
 			});
-		</script>
+		</script> -->
+
+		<script>
+			function getParameterByName(name, url = window.location.href) {
+			  name = name.replace(/[\[\]]/g, '\\$&');
+			  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+			  if (!results) return null;
+			  if (!results[2]) return '';
+			  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+		  
+			document.addEventListener('DOMContentLoaded', function() {
+			  var names = getParameterByName('name');
+			  if (names) {
+				var nameList = names.split('&');
+				var welcomeElement = document.getElementById('welcome');
+				welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
+			  }
+			});
+		  </script>
 
 	</head>
 	<body>
