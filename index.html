@@ -64,7 +64,8 @@
 				var name = getParameterByName('name');
 				if (name) {
 					var welcomeElement = document.getElementById('welcome');
-					welcomeElement.textContent = 'Dear, ' + name + '!';
+					// welcomeElement.textContent = 'Dear, ' + name + '!';
+					welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
 				}
 			});
 		</script>
