@@ -401,7 +401,7 @@
 		$('#submit').on('click', function() {
 
 			event.preventDefault();
-						
+
 			$('#loading').show();
 
 			var name = $('#name').val() || 'no set';
@@ -451,10 +451,6 @@
 			});
 		});
 
-		var lastImageIndexP = 0;
-		var lastImageIndexE = 0;
-		var totalImagesP = 72;
-		var totalImagesE = 35;
 		var lastImageIndexS = 0;
 		var totalImagesS = 25;
 
@@ -463,7 +459,7 @@
 
 			for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
 				var imgElement = document.createElement("a");
-				imgElement.href = "images/p" + i + ".jpg";
+				imgElement.href = "images/s" + i + ".jpg";
 				imgElement.className = "swipeboxImg";
 				var img = document.createElement("img");
 				img.src = "images/s" + i + ".jpg";
