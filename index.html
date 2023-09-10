@@ -82,7 +82,7 @@
 			  if (names) {
 				var nameList = names.split('&');
 				var welcomeElement = document.getElementById('welcome');
-				welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
+				welcomeElement.textContent = 'Dear, ' + nameList.map(decodeURI).join(' & ') + '!';
 			  }
 			});
 		  </script>
