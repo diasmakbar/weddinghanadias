@@ -343,60 +343,19 @@
 	</audio> -->
 
 	<script>
-
-function generateImages() {
-var galeri = document.getElementById("galeri");
-
-	for (var i = 1; i <= 72; i++) {
-		var imgElement = document.createElement("a");
-		imgElement.href = "images/p" + i + ".jpg";
-		imgElement.className = "swipeboxImg";
-		var img = document.createElement("img");
-		img.src = "images/p" + i + ".jpg";
-		img.loading = "lazy";
-		imgElement.appendChild(img);
-		galeri.appendChild(imgElement);
-	}
-
-	for (var i = 1; i <= 35; i++) {
-		var imgElement = document.createElement("a");
-		imgElement.href = "images/e" + i + ".jpg";
-		imgElement.className = "swipeboxImg";
-		var img = document.createElement("img");
-		img.src = "images/e" + i + ".jpg";
-		img.loading = "lazy";
-		imgElement.appendChild(img);
-		galeri.appendChild(imgElement);
-	}
-}
-
-// simplyCountdown('.simply-countdown-one', {
-// 	year: 2023,
-// 	month: 10,
-// 	day: 28,
-// 	hour: 1
-// });
-
-// $('#simply-countdown-losange').simplyCountdown({
-// 	year: 2023,
-// 	month: 10,
-// 	day: 28,
-// 	hour: 1
-// });
-
-var eventDate = new Date(Date.UTC(2023, 9, 28, 8)); // Months are 0-based in JavaScript Date
-eventDate.setHours(eventDate.getHours() + 7); // Adjust for GMT+7
+var eventDate = new Date(Date.UTC(2023, 9, 28, 8));
+eventDate.setHours(eventDate.getHours() + 7);
 
 simplyCountdown('.simply-countdown-one', {
     year: eventDate.getFullYear(),
-    month: eventDate.getMonth() + 1, // Months are 0-based in JavaScript Date
+    month: eventDate.getMonth() + 1,
     day: eventDate.getDate(),
     hour: eventDate.getHours()
 });
 
 $('#simply-countdown-losange').simplyCountdown({
     year: eventDate.getFullYear(),
-    month: eventDate.getMonth() + 1, // Months are 0-based in JavaScript Date
+    month: eventDate.getMonth() + 1,
     day: eventDate.getDate(),
     hour: eventDate.getHours()
 });
@@ -454,9 +413,43 @@ $(document).ready(function () {
 			});
 	});
 
-	$(window).on('load', function() {
+	var lastImageIndexP = 0;
+	var lastImageIndexE = 0;
+	var totalImagesP = 72;
+	var totalImagesE = 35;
 
-		generateImages();
+	function generateImages(numImages) {
+		var galeri = document.getElementById("galeri");
+
+		for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
+			var imgElement = document.createElement("a");
+			imgElement.href = "images/p" + i + ".jpg";
+			imgElement.className = "swipeboxImg";
+			var img = document.createElement("img");
+			img.src = "images/p" + i + ".jpg";
+			img.loading = "lazy";
+			imgElement.appendChild(img);
+			galeri.appendChild(imgElement);
+		}
+
+		lastImageIndexP += numImages;
+
+		for (var i = lastImageIndexE + 1; i <= Math.min(lastImageIndexE + numImages, totalImagesE); i++) {
+			var imgElement = document.createElement("a");
+			imgElement.href = "images/e" + i + ".jpg";
+			imgElement.className = "swipeboxImg";
+			var img = document.createElement("img");
+			img.src = "images/e" + i + ".jpg";
+			img.loading = "lazy";
+			imgElement.appendChild(img);
+			galeri.appendChild(imgElement);
+		}
+
+		lastImageIndexE += numImages;
+	}
+
+	$(window).on('load', function() {
+		generateImages(20);
 
 		$('#galeri').justifiedGallery({
 			rowHeight: 150,
@@ -464,13 +457,76 @@ $(document).ready(function () {
 			randomize: true,
 			lastRow: 'justify',
 			rel : 'gallery1',
-			}).on('jg.complete', function () {
-				$('.swipeboxImg').swipebox();
-				});
+		}).on('jg.complete', function () {
+			$('.swipeboxImg').swipebox();
+		});
+	});
 
-		window.addEventListener("load", generateImages);
+	$(window).scroll(function() {
+		if($(window).scrollTop() + $(window).height() == $(document).height()) {
+			generateImages(5);
+			$('#galeri').justifiedGallery('norewind');
+		}
 	});
 });
 	</script>
+
+	<!-- <script>
+
+// simplyCountdown('.simply-countdown-one', {
+// 	year: 2023,
+// 	month: 10,
+// 	day: 28,
+// 	hour: 1
+// });
+
+// $('#simply-countdown-losange').simplyCountdown({
+// 	year: 2023,
+// 	month: 10,
+// 	day: 28,
+// 	hour: 1
+// });
+			// $(window).on('load', function() {
+
+	// 	generateImages();
+
+	// 	$('#galeri').justifiedGallery({
+	// 		rowHeight: 150,
+	// 		margins: 5,
+	// 		randomize: true,
+	// 		lastRow: 'justify',
+	// 		rel : 'gallery1',
+	// 		}).on('jg.complete', function () {
+	// 			$('.swipeboxImg').swipebox();
+	// 			});
+
+	// 	window.addEventListener("load", generateImages);
+	// });
+		function generateImages() {
+var galeri = document.getElementById("galeri");
+
+	for (var i = 1; i <= 72; i++) {
+		var imgElement = document.createElement("a");
+		imgElement.href = "images/p" + i + ".jpg";
+		imgElement.className = "swipeboxImg";
+		var img = document.createElement("img");
+		img.src = "images/p" + i + ".jpg";
+		img.loading = "lazy";
+		imgElement.appendChild(img);
+		galeri.appendChild(imgElement);
+	}
+
+	for (var i = 1; i <= 35; i++) {
+		var imgElement = document.createElement("a");
+		imgElement.href = "images/e" + i + ".jpg";
+		imgElement.className = "swipeboxImg";
+		var img = document.createElement("img");
+		img.src = "images/e" + i + ".jpg";
+		img.loading = "lazy";
+		imgElement.appendChild(img);
+		galeri.appendChild(imgElement);
+	}
+}
+	</script> -->
 	</body>
 </html>
