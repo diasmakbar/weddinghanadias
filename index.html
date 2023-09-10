@@ -20,15 +20,16 @@
 		<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 		<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 		
+		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/animate.css">
 		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/magnific-popup.css">
 		<link rel="stylesheet" href="css/owl.carousel.min.css">
 		<link rel="stylesheet" href="css/owl.theme.default.min.css">
 		<link rel="stylesheet" href="css/swipebox.css">
 		<link rel="stylesheet" href="css/swipebox.min.css">
+		<link rel="stylesheet" href="css/justifiedGallery.min.css" />
 		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/main.js"></script>
@@ -44,8 +45,9 @@
 		<script src="js/simplyCountdown.js"></script>
 		<script src="js/jquery.swipebox.js"></script>
 		<script src="js/jquery.swipebox.min.js"></script>
-
+		<script src="js/jquery.justifiedGallery.min.js"></script>
 		<script src="js/modernizr-2.6.2.min.js"></script>
+
 		<script>
 			function getParameterByName(name, url = window.location.href) {
 			name = name.replace(/[\[\]]/g, '\\$&');
@@ -64,9 +66,6 @@
 			}
 			}
 		</script>
-
-		<link rel="stylesheet" href="css/justifiedGallery.min.css" />
-		<script src="js/jquery.justifiedGallery.min.js"></script>
 
 	</head>
 	<body>
@@ -346,129 +345,112 @@
 	<script>
 
 function generateImages() {
-        var galeri = document.getElementById("galeri");
+var galeri = document.getElementById("galeri");
 
-        // Loop for p1 to p72 images
-        for (var i = 1; i <= 72; i++) {
-            var imgElement = document.createElement("a");
-            imgElement.href = "images/p" + i + ".jpg";
-            imgElement.className = "swipeboxImg";
-            var img = document.createElement("img");
-            img.src = "images/p" + i + ".jpg";
-            imgElement.appendChild(img);
-            galeri.appendChild(imgElement);
-        }
-
-        // Loop for e1 to e35 images
-        for (var i = 1; i <= 35; i++) {
-            var imgElement = document.createElement("a");
-            imgElement.href = "images/e" + i + ".jpg";
-            imgElement.className = "swipeboxImg";
-            var img = document.createElement("img");
-            img.src = "images/e" + i + ".jpg";
-            imgElement.appendChild(img);
-            galeri.appendChild(imgElement);
-        }
+	for (var i = 1; i <= 72; i++) {
+		var imgElement = document.createElement("a");
+		imgElement.href = "images/p" + i + ".jpg";
+		imgElement.className = "swipeboxImg";
+		var img = document.createElement("img");
+		img.src = "images/p" + i + ".jpg";
+		imgElement.appendChild(img);
+		galeri.appendChild(imgElement);
 	}
 
-	simplyCountdown('.simply-countdown-one', {
-        year: 2023,
-        month: 10,
-        day: 28,
-		hour: 8
-    });
+	for (var i = 1; i <= 35; i++) {
+		var imgElement = document.createElement("a");
+		imgElement.href = "images/e" + i + ".jpg";
+		imgElement.className = "swipeboxImg";
+		var img = document.createElement("img");
+		img.src = "images/e" + i + ".jpg";
+		imgElement.appendChild(img);
+		galeri.appendChild(imgElement);
+	}
+}
 
-    $('#simply-countdown-losange').simplyCountdown({
-        year: 2023,
-        month: 10,
-        day: 28,
-		hour: 8
-    });
+simplyCountdown('.simply-countdown-one', {
+	year: 2023,
+	month: 10,
+	day: 28,
+	hour: 1
+});
 
-	function showAttendanceNumber() {
-        document.getElementById("attendanceNumber").style.display = "block";
-    }
-    
-    function hideAttendanceNumber() {
-        document.getElementById("attendanceNumber").style.display = "none";
-    }
+$('#simply-countdown-losange').simplyCountdown({
+	year: 2023,
+	month: 10,
+	day: 28,
+	hour: 1
+});
+
+function showAttendanceNumber() {
+	document.getElementById("attendanceNumber").style.display = "block";
+}
+
+function hideAttendanceNumber() {
+	document.getElementById("attendanceNumber").style.display = "none";
+}
 
 $(document).ready(function () {
 	$('#submit').on('click', function() {
-	var name = $('#name').val() || 'no set';
+		var name = $('#name').val() || 'no set';
 
-	var attending = function() {
-		var v;
-		$('[name="entry.164254037"]').each(function() {
-		if($(this).prop('checked') === true) v = $(this).val();
-		});
-		return v;
-	};
+		var attending = function() {
+			var v;
+			$('[name="entry.164254037"]').each(function() {
+			if($(this).prop('checked') === true) v = $(this).val();
+			});
+			return v;
+		};
 
-	var numberOfPeople = function() {
-		var v;
-		$('[name="entry.678699127"]').each(function() {
-		if($(this).prop('checked') === true) v = $(this).val();
-		});
-		return v;
-	};
+		var numberOfPeople = function() {
+			var v;
+			$('[name="entry.678699127"]').each(function() {
+			if($(this).prop('checked') === true) v = $(this).val();
+			});
+			return v;
+		};
 
-	var wishes = $('#wishes').val() || 'no set';
+		var wishes = $('#wishes').val() || 'no set';
 
-	var data = {
-	'entry.1717783849': name,
-	'entry.164254037': attending(),
-	'entry.678699127': numberOfPeople(),
-	'entry.539757192': wishes
-	};
+		var data = {
+		'entry.1717783849': name,
+		'entry.164254037': attending(),
+		'entry.678699127': numberOfPeople(),
+		'entry.539757192': wishes
+		};
 
-	$.ajax({
-		type: 'POST',
-		url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
-		data: data,
-		contentType: 'application/json',
-		dataType: 'jsonp',
-			complete: function() {
-			alert('Waiting for you!');
-			$('#name').val('');
-			$('[name="entry.164254037"]').prop('checked', false);
-			$('[name="entry.678699127"]').prop('checked', false);
-			$('#wishes').val('');
-			}
-	});
-});
-
-$(window).on('load', function() {
-
-	generateImages();
-	
-	$('#galeri').justifiedGallery({
-		rowHeight: 150,
-		margins: 5,
-		randomize: true,
-		lastRow: 'justify',
-		rel : 'gallery1',
-	}).on('jg.complete', function () {
-		$('.swipeboxImg').swipebox();
+		$.ajax({
+			type: 'POST',
+			url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
+			data: data,
+			contentType: 'application/json',
+			dataType: 'jsonp',
+				complete: function() {
+				alert('Waiting for you!');
+				$('#name').val('');
+				$('[name="entry.164254037"]').prop('checked', false);
+				$('[name="entry.678699127"]').prop('checked', false);
+				$('#wishes').val('');
+				}
+			});
 	});
 
-	window.addEventListener("load", generateImages);
-	// $('#galeri').justifiedGallery({
-    //         rowHeight: 150,
-    //         margins: 5,
-	// 		randomize: true,
-	// 		lastRow: 'justify',
-	// 		rel : 'gallery1',
-    //     }).on('jg.complete', function () {
-    // $(this).find('a').colorbox({
-    //     maxWidth : '80%',
-    //     maxHeight : '80%',
-    //     opacity : 0.8,
-    //     transition : 'elastic',
-    //     current : ''
-    // });
-	// });
-});
+	$(window).on('load', function() {
+
+		generateImages();
+
+		$('#galeri').justifiedGallery({
+			rowHeight: 150,
+			margins: 5,
+			randomize: true,
+			lastRow: 'justify',
+			rel : 'gallery1',
+			}).on('jg.complete', function () {
+				$('.swipeboxImg').swipebox();
+				});
+
+		window.addEventListener("load", generateImages);
+	});
 });
 	</script>
 	</body>
