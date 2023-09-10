@@ -63,6 +63,7 @@
 			document.addEventListener('DOMContentLoaded', function() {
 				var name = getParameterByName('name');
 				if (name) {
+					var nameList = names.split('&');
 					var welcomeElement = document.getElementById('welcome');
 					// welcomeElement.textContent = 'Dear, ' + name + '!';
 					welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
