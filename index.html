@@ -72,7 +72,8 @@
 		
 	<div class="fh5co-loader"></div>
 	
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/cover_atas.JPG);" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover" role="banner" data-stellar-background-ratio="0.5">
+	<!-- <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/cover_atas.JPG);" data-stellar-background-ratio="0.5"> -->
 		<div class="overlay"></div>
 		
 		<div class="container">
@@ -129,7 +130,8 @@
 		</div>
 	</div>
 
-	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/cover2bw.JPG);">
+	<div id="fh5co-event" class="fh5co-bg">
+	<!-- <div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/cover2bw.JPG);"> -->
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -262,7 +264,8 @@
 		</div>
 	</div>
 
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/cover3.JPG);">
+	<div id="fh5co-started" class="fh5co-bg">
+	<!-- <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/cover3.JPG);"> -->
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
@@ -324,8 +327,6 @@
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
 					<div id="galeri">
-						<!-- <a href="images/p1.jpg" class="swipeboxImg"><img src="images/p1.jpg"></a>
-						<a href="images/p2.jpg" class="swipeboxImg"><img src="images/p2.jpg"></a> -->
 					</div>
 				</div>
 			</div>
@@ -343,136 +344,161 @@
 	</audio> -->
 
 	<script>
-var eventDate = new Date(Date.UTC(2023, 9, 28, 8));
-eventDate.setHours(eventDate.getHours() + 7);
+	window.onload = function() {
+    var header = document.getElementById('fh5co-header');
+        if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+            header.style.backgroundImage = 'url(images/mobile_cover_atas.JPG)';
+        } else {
+            header.style.backgroundImage = 'url(images/cover_atas.JPG)';
+        }
+	var event = document.getElementById('fh5co-event');
+        if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+            header.style.backgroundImage = 'url(images/mobile_cover2bw.JPG)';
+        } else {
+            header.style.backgroundImage = 'url(images/cover2bw.JPG)';
+        }
+	var started = document.getElementById('fh5co-started');
+        if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+            header.style.backgroundImage = 'url(images/mobile_cover3.JPG)';
+        } else {
+            header.style.backgroundImage = 'url(images/cover3.JPG)';
+        }
+    }
+	</script>
 
-simplyCountdown('.simply-countdown-one', {
-    year: eventDate.getFullYear(),
-    month: eventDate.getMonth() + 1,
-    day: eventDate.getDate(),
-    hour: eventDate.getHours()
-});
+	<script>
+	var eventDate = new Date(Date.UTC(2023, 9, 28, 23));
+	eventDate.setHours(eventDate.getHours() + 7);
 
-$('#simply-countdown-losange').simplyCountdown({
-    year: eventDate.getFullYear(),
-    month: eventDate.getMonth() + 1,
-    day: eventDate.getDate(),
-    hour: eventDate.getHours()
-});
-
-function showAttendanceNumber() {
-	document.getElementById("attendanceNumber").style.display = "block";
-}
-
-function hideAttendanceNumber() {
-	document.getElementById("attendanceNumber").style.display = "none";
-}
-
-$(document).ready(function () {
-	$('#submit').on('click', function() {
-		var name = $('#name').val() || 'no set';
-
-		var attending = function() {
-			var v;
-			$('[name="entry.164254037"]').each(function() {
-			if($(this).prop('checked') === true) v = $(this).val();
-			});
-			return v;
-		};
-
-		var numberOfPeople = function() {
-			var v;
-			$('[name="entry.678699127"]').each(function() {
-			if($(this).prop('checked') === true) v = $(this).val();
-			});
-			return v;
-		};
-
-		var wishes = $('#wishes').val() || 'no set';
-
-		var data = {
-		'entry.1717783849': name,
-		'entry.164254037': attending(),
-		'entry.678699127': numberOfPeople(),
-		'entry.539757192': wishes
-		};
-
-		$.ajax({
-			type: 'POST',
-			url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
-			data: data,
-			contentType: 'application/json',
-			dataType: 'jsonp',
-				complete: function() {
-				alert('Waiting for you!');
-				$('#name').val('');
-				$('[name="entry.164254037"]').prop('checked', false);
-				$('[name="entry.678699127"]').prop('checked', false);
-				$('#wishes').val('');
-				}
-			});
+	simplyCountdown('.simply-countdown-one', {
+		year: eventDate.getFullYear(),
+		month: eventDate.getMonth() + 1,
+		day: eventDate.getDate(),
+		hour: eventDate.getHours()
 	});
 
-	var lastImageIndexP = 0;
-	var lastImageIndexE = 0;
-	var totalImagesP = 72;
-	var totalImagesE = 35;
+	$('#simply-countdown-losange').simplyCountdown({
+		year: eventDate.getFullYear(),
+		month: eventDate.getMonth() + 1,
+		day: eventDate.getDate(),
+		hour: eventDate.getHours()
+	});
 
-	function generateImages(numImages) {
-		var galeri = document.getElementById("galeri");
-
-		for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
-			var imgElement = document.createElement("a");
-			imgElement.href = "images/p" + i + ".jpg";
-			imgElement.className = "swipeboxImg";
-			var img = document.createElement("img");
-			img.src = "images/p" + i + ".jpg";
-			img.loading = "lazy";
-			imgElement.appendChild(img);
-			galeri.appendChild(imgElement);
-		}
-
-		lastImageIndexP += numImages;
-
-		for (var i = lastImageIndexE + 1; i <= Math.min(lastImageIndexE + numImages, totalImagesE); i++) {
-			var imgElement = document.createElement("a");
-			imgElement.href = "images/e" + i + ".jpg";
-			imgElement.className = "swipeboxImg";
-			var img = document.createElement("img");
-			img.src = "images/e" + i + ".jpg";
-			img.loading = "lazy";
-			imgElement.appendChild(img);
-			galeri.appendChild(imgElement);
-		}
-
-		lastImageIndexE += numImages;
-
-		$('.swipeboxImg').swipebox();
-
+	function showAttendanceNumber() {
+		document.getElementById("attendanceNumber").style.display = "block";
 	}
 
-	$(window).on('load', function() {
-		generateImages(20);
+	function hideAttendanceNumber() {
+		document.getElementById("attendanceNumber").style.display = "none";
+	}
 
-		$('#galeri').justifiedGallery({
-			rowHeight: 150,
-			margins: 5,
-			randomize: true,
-			lastRow: 'justify',
-			rel : 'gallery1',
-		}).on('jg.complete', function () {
+	$(document).ready(function () {
+		$('#submit').on('click', function() {
+			var name = $('#name').val() || 'no set';
+
+			var attending = function() {
+				var v;
+				$('[name="entry.164254037"]').each(function() {
+				if($(this).prop('checked') === true) v = $(this).val();
+				});
+				return v;
+			};
+
+			var numberOfPeople = function() {
+				var v;
+				$('[name="entry.678699127"]').each(function() {
+				if($(this).prop('checked') === true) v = $(this).val();
+				});
+				return v;
+			};
+
+			var wishes = $('#wishes').val() || 'no set';
+
+			var data = {
+			'entry.1717783849': name,
+			'entry.164254037': attending(),
+			'entry.678699127': numberOfPeople(),
+			'entry.539757192': wishes
+			};
+
+			$.ajax({
+				type: 'POST',
+				url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSe5EcGgOZPylrUbL__xdc5Aa3fWMZYST3jOMiPsasCdg0n16w/formResponse',
+				data: data,
+				contentType: 'application/json',
+				dataType: 'jsonp',
+					complete: function() {
+					alert('Waiting for you!');
+					$('#name').val('');
+					$('[name="entry.164254037"]').prop('checked', false);
+					$('[name="entry.678699127"]').prop('checked', false);
+					$('#wishes').val('');
+					}
+				});
+		});
+
+		var lastImageIndexP = 0;
+		var lastImageIndexE = 0;
+		var totalImagesP = 72;
+		var totalImagesE = 35;
+
+		function generateImages(numImages) {
+			var galeri = document.getElementById("galeri");
+
+			for (var i = lastImageIndexP + 1; i <= Math.min(lastImageIndexP + numImages, totalImagesP); i++) {
+				var imgElement = document.createElement("a");
+				imgElement.href = "images/p" + i + ".jpg";
+				imgElement.className = "swipeboxImg";
+				var img = document.createElement("img");
+				img.src = "images/p" + i + ".jpg";
+				img.loading = "lazy";
+				imgElement.appendChild(img);
+				galeri.appendChild(imgElement);
+			}
+
+			lastImageIndexP += numImages;
+
+			for (var i = lastImageIndexE + 1; i <= Math.min(lastImageIndexE + numImages, totalImagesE); i++) {
+				var imgElement = document.createElement("a");
+				imgElement.href = "images/e" + i + ".jpg";
+				imgElement.className = "swipeboxImg";
+				var img = document.createElement("img");
+				img.src = "images/e" + i + ".jpg";
+				img.loading = "lazy";
+				imgElement.appendChild(img);
+				galeri.appendChild(imgElement);
+			}
+
+			lastImageIndexE += numImages;
+
 			$('.swipeboxImg').swipebox();
+
+		}
+
+		$(window).on('load', function() {
+			generateImages(20);
+
+			$('#galeri').justifiedGallery({
+				rowHeight: 150,
+				margins: 5,
+				randomize: true,
+				lastRow: 'justify',
+				rel : 'gallery1',
+			}).on('jg.complete', function () {
+				$('.swipeboxImg').swipebox();
+			});
+		});
+
+		$(window).scroll(function() {
+			if($(window).scrollTop() + $(window).height() == $(document).height()) {
+				generateImages(5);
+				$('#galeri').justifiedGallery('norewind');
+			}
 		});
 	});
-
-	$(window).scroll(function() {
-		if($(window).scrollTop() + $(window).height() == $(document).height()) {
-			generateImages(5);
-			$('#galeri').justifiedGallery('norewind');
-		}
-	});
-});
 	</script>
+	</body>
+</html>
 
 	<!-- <script>
 
@@ -531,5 +557,3 @@ var galeri = document.getElementById("galeri");
 	}
 }
 	</script> -->
-	</body>
-</html>
