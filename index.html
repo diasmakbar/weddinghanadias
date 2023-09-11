@@ -475,7 +475,7 @@
 		}
 
 		$(window).on('load', function() {
-			generateImages(10);
+			generateImages(25);
 
 			$('#galeri').justifiedGallery({
 				rowHeight: 150,
@@ -488,12 +488,12 @@
 			});
 		});
 
-		$(window).scroll(function() {
-			if($(window).scrollTop() + $(window).height() == $(document).height()) {
-				generateImages(5);
-				$('#galeri').justifiedGallery('norewind');
-			}
-		});
+		// $(window).scroll(function() {
+		// 	if($(window).scrollTop() + $(window).height() == $(document).height()) {
+		// 		generateImages(5);
+		// 		$('#galeri').justifiedGallery('norewind');
+		// 	}
+		// });
 	});
 	</script>
 	</body>
