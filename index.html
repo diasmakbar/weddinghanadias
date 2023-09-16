@@ -60,7 +60,14 @@
 			  var names = getParameterByName('name');
 			  if (names) {
 				var separator = '_';
-				var nameList = names.split(separator);
+				// var nameList = names.split(separator);
+				var nameList = names.split(separator).map(function(name) {
+					if (name.includes('-')) {
+					return name.replace(/-/g, ' ');
+					} else {
+					return name.replace(/_/g, '&');
+					}
+				});
 				var welcomeElement = document.getElementById('welcome');
 				welcomeElement.textContent = 'Dear, ' + nameList.join(' & ') + '!';
 			  }
